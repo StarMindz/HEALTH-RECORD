@@ -1,9 +1,10 @@
 import './App.css';
+import PatientSignIn from './pages/patient/PatientSignIn';
 
 function App() {
   return (
     <div className="App">
-      App Here
+      <PatientSignIn />
     </div>
   );
 }
