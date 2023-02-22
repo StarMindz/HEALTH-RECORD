@@ -1,9 +1,31 @@
 .input {
-  height: 56px;
+  height: 24px;
   border-color: #79747E;
   border-radius: 4px;
-  width: 60%;
+  width: 456px;
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 14px;
+  padding: 16px;
+  outline: none;
 }
 
+.main_cont {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.input_label {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  background-color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: Roboto;
+  font-size: 12px;
+  height: 16px;
+}

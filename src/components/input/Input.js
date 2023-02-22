@@ -4,7 +4,7 @@ import style from './input.module.css';
 
 const Input = (props) => {
   const {
-    type, text, label, placeholder, required,
+    type, label, placeholder, required,
   } = props;
   const html = (
     <div className={style.main_cont}>
@@ -13,9 +13,8 @@ const Input = (props) => {
       </div>
       <input
         type={type}
-        value={text}
-        required={required}
         placeholder={placeholder}
+        required={required}
         className={style.input}
       />
     </div>
@@ -25,7 +24,6 @@ const Input = (props) => {
 
 Input.propTypes = {
   type: PropTypes.string,
-  text: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -33,7 +31,6 @@ Input.propTypes = {
 
 Input.defaultProps = {
   type: '',
-  text: '',
   label: '',
   placeholder: '',
   required: false,

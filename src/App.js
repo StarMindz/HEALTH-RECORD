@@ -1,5 +1,5 @@
 import './App.css';
-import PatientSignIn from './pages/patient/PatientSignIn';
+import PatientSignIn from './pages/patient/SignIn';
 
 function App() {
   return (
