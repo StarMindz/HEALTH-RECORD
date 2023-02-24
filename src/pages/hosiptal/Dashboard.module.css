@@ -1,0 +1,113 @@
+.main_cont {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  min-height: 100vh;
+}
+
+.company_name {
+  font-family: Roboto;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 64px;
+}
+
+.side_bar {
+  display: flex;
+  flex-direction: column;
+  width: 256px;
+  align-items: center;
+  background-color: #d9d9d9;
+}
+
+.main_infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  padding-top: 80px;
+}
+
+.side_bar_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  width: 208px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.item_img {
+  width: 18px;
+  height: 18px;
+}
+
+.item_text {
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.main_subsection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 298px;
+  border-radius: 16px;
+  padding: 40px;
+  background-color: #d9d9d9;
+  width: 928px;
+}
+
+.profile_min_main {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile_pic {
+  background-color: #b9b9b9;
+  width: 241px;
+  height: 254px;
+  border-radius: 16px;
+}
+
+.edit_cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.edit_icon {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  margin-top: -2px;
+}
+
+.edit_text {
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.bio {
+  margin-left: 47px;
+}
+
+.name {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.bio_label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.genotype_info {
+  margin-left: 106px;
+  margin-top: 60px;
+}

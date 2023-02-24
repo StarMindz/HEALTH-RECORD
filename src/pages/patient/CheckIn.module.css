@@ -1,0 +1,37 @@
+.check_in {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.check_in_cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(58, 58, 58, 0.15);
+  border-radius: 20px;
+  width: 744px;
+  height: 464px;
+}
+
+.sub_cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  margin: auto;
+  margin-bottom: 48px;
+}
+
+.heading {
+  margin-top: 48px;
+  color: #f0851a;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 48px;
+}
