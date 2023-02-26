@@ -1,7 +1,7 @@
 .main_cont {
   display: grid;
   grid-template-columns: 20% 80%;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .company_name {
@@ -14,17 +14,19 @@
 .side_bar {
   display: flex;
   flex-direction: column;
-  width: 256px;
+  width: 100%;
   align-items: center;
-  background-color: #d9d9d9;
+  background-color: #85af65;
 }
 
 .main_infos {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: auto;
+  overflow: scroll;
+  width: 100%;
   padding-top: 80px;
+  padding-bottom: 100px;
 }
 
 .side_bar_item {
@@ -36,6 +38,7 @@
   width: 208px;
   height: 48px;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .item_img {
@@ -52,12 +55,11 @@
 .main_subsection {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 85%;
   height: 298px;
   border-radius: 16px;
   padding: 40px;
   background-color: #d9d9d9;
-  width: 928px;
 }
 
 .profile_min_main {
@@ -90,6 +92,35 @@
   font-size: 14px;
   font-weight: 500;
   margin-left: 10px;
+  cursor: pointer;
+}
+
+.add_text {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+  color: #6d9f46;
+  cursor: pointer;
+}
+
+.file_icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 19px;
+  cursor: pointer;
+}
+
+.file_cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.file_name {
+  color: #6d9f46;
+  cursor: pointer;
 }
 
 .bio {
@@ -110,4 +141,64 @@
 .genotype_info {
   margin-left: 106px;
   margin-top: 60px;
+}
+
+.subsection_head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.subsection {
+  display: flex;
+  width: 85%;
+  flex-direction: column;
+  margin-top: 47px;
+}
+
+.subsection_horizontal {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.subsection_subhead {
+  display: grid;
+  grid-template-columns: 36% 34% 30%;
+  background-color: #fce7d1;
+  padding: 0 24px 0 24px;
+}
+
+.subsection_items {
+  display: grid;
+  grid-template-columns: 36% 34% 30%;
+  padding: 0 24px 0 24px;
+}
+
+.subsection_subhead2{
+  display: grid;
+  grid-template-columns: 70% 30%;
+  background-color: #fce7d1;
+  padding: 0 24px 0 24px;
+}
+
+.subsection_items2 {
+  padding: 0 24px 0 24px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.subsection_title {
+  font-size: 24px;
+  font-family: Roboto;
+  font-weight: 500;
+}
+
+.subsection_items3 {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height: 48px;
+  padding: 0 24px 0 24px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  margin-top: 10px;
 }

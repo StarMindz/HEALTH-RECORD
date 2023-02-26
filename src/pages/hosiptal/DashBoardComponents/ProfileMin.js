@@ -1,5 +1,6 @@
 import style from '../Dashboard.module.css';
 import edit from '../../../assets/icons/edit.png';
+import profilePic from '../../../assets/profile _pic.png';
 
 const ProfileMin = () => {
   const html = (
@@ -9,7 +10,7 @@ const ProfileMin = () => {
         <h2 className={style.edit_text}>Edit Medical Profile</h2>
       </div>
       <div className={style.profile_min_main}>
-        <img className={style.profile_pic} src="" alt="profile pic" />
+        <img className={style.profile_pic} src={profilePic} alt="profile pic" />
         <div className={style.bio}>
           <h2 className={style.name}>Simon Solomon</h2>
           <div className={style.bio_item}>
