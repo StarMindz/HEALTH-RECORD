@@ -9,6 +9,14 @@
   outline: none;
 }
 
+.input2 {
+  width: 490px;
+  height: 56px;
+  box-sizing: border-box;
+  display: block;
+  outline: none;
+}
+
 .main_cont {
   position: relative;
   width: 100%;

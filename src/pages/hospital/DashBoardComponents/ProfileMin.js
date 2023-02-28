@@ -1,6 +1,6 @@
 import style from '../Dashboard.module.css';
 import edit from '../../../assets/icons/edit.png';
-import profilePic from '../../../assets/profile _pic.png';
+import profilePic from '../../../assets/profile_pic.png';
 
 const ProfileMin = () => {
   const html = (

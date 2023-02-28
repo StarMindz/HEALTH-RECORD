@@ -24,9 +24,8 @@
   flex-direction: column;
   align-items: center;
   overflow: scroll;
-  width: 100%;
   padding-top: 80px;
-  padding-bottom: 100px;
+  padding-bottom: 130px;
 }
 
 .side_bar_item {
@@ -55,11 +54,20 @@
 .main_subsection {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 80%;
   height: 298px;
   border-radius: 16px;
   padding: 40px;
   background-color: #d9d9d9;
+}
+
+.home {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .profile_min_main {
@@ -201,4 +209,11 @@
   display: grid;
   grid-template-columns: 70% 30%;
   margin-top: 10px;
+}
+
+.active {
+  border-radius: 4px;
+  background-color: #f0851a;
+  padding-left: 19px;
+  transition: 0.5s;
 }
