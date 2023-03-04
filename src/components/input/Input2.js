@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import style from './input.module.css';
 
@@ -6,15 +6,18 @@ const Input2 = (props) => {
   const {
     options, label, required,
   } = props;
+
+  const [selected, setSelected] = useState(options[0]);
   const html = (
     <div className={style.main_cont}>
       <div className={style.input_label}>
         {label}
       </div>
       <select
-        value={options[0]}
+        value={selected}
         required={required}
         className={style.input2}
+        onChange={(e) => setSelected(e.target.value)}
       >
         {options.map((option) => (
           <option key={option} value={option}>

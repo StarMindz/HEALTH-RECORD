@@ -1,13 +1,21 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import PropTypes from 'prop-types';
 import style from '../Dashboard.module.css';
 import edit from '../../../assets/icons/edit.png';
 import profilePic from '../../../assets/profile_pic.png';
 
-const ProfileMin = () => {
+const ProfileMin = ({ handleClick }) => {
+  const editor = () => {
+    handleClick('profile');
+  };
+
   const html = (
     <div className={style.main_subsection}>
-      <div className={style.edit_cont}>
-        <img className={style.edit_icon} src={edit} alt="Edit" />
-        <h2 className={style.edit_text}>Edit Medical Profile</h2>
+      <div className={style.edit_cont} role="button">
+        <img className={style.edit_icon} onClick={editor} src={edit} alt="Edit" />
+        <h2 className={style.edit_text} onClick={editor}>Edit Medical Profile</h2>
       </div>
       <div className={style.profile_min_main}>
         <img className={style.profile_pic} src={profilePic} alt="profile pic" />
@@ -46,4 +54,13 @@ const ProfileMin = () => {
 
   return html;
 };
+
+ProfileMin.propTypes = {
+  handleClick: PropTypes.func,
+};
+
+ProfileMin.defaultProps = {
+  handleClick: '',
+};
+
 export default ProfileMin;

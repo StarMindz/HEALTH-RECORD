@@ -14,7 +14,7 @@ const Button = (props) => {
 
 Button.propTypes = {
   text: PropTypes.string,
-  btnType: PropTypes.string,
+  btnType: PropTypes.number,
 };
 
 Button.defaultProps = {

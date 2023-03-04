@@ -12,7 +12,7 @@ const Profile = () => {
         <img src={profilePic} alt="Profile pic" className={style.profile_pic} />
       </div>
       <Button
-        text="Check In Patient"
+        text="Upload"
         btnType={2}
       />
       <form className={style.profile_form}>
@@ -38,6 +38,11 @@ const Profile = () => {
           type="date"
           label="Date of Birth"
           placeholder=""
+          required
+        />
+        <Input2
+          options={['Male', 'Female']}
+          label="Gender"
           required
         />
         <Input

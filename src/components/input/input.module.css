@@ -9,12 +9,25 @@
   outline: none;
 }
 
+.big_input {
+  height: 100px;
+  border-color: #79747E;
+  border-radius: 4px;
+  width: 456px;
+  font-family: Roboto;
+  font-size: 14px;
+  padding: 16px;
+  outline: none;
+}
+
 .input2 {
   width: 490px;
   height: 56px;
-  box-sizing: border-box;
-  display: block;
   outline: none;
+  -webkit-appearance: listbox;
+  appearance: listbox;
+  padding-right: 32px;
+  cursor: pointer;
 }
 
 .main_cont {

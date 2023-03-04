@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import PropTypes from 'prop-types';
 import style from '../Dashboard.module.css';
 import add from '../../../assets/icons/add.png';
 import file from '../../../assets/icons/files.png';
 
-const TestMin = () => {
+const TestMin = ({ input }) => {
   const dummyData = [
     {
       id: 1,
@@ -16,13 +19,17 @@ const TestMin = () => {
     },
   ];
 
+  const openInput = () => {
+    input('test');
+  };
+
   const html = (
     <div className={style.subsection}>
       <div className={style.subsection_head}>
         <h2 className={style.subsection_title}>Test</h2>
         <div className={style.edit_cont}>
-          <img className={style.edit_icon} src={add} alt="Edit" />
-          <h2 className={style.add_text}>Add Test</h2>
+          <img className={style.edit_icon} src={add} alt="Add" onClick={openInput} />
+          <h2 className={style.add_text} onClick={openInput}>Add Test</h2>
         </div>
       </div>
       <hr className={style.subsection_horizontal} />
@@ -44,4 +51,13 @@ const TestMin = () => {
 
   return html;
 };
+
+TestMin.propTypes = {
+  input: PropTypes.func,
+};
+
+TestMin.defaultProps = {
+  input: '',
+};
+
 export default TestMin;

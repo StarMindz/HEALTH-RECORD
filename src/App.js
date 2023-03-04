@@ -3,6 +3,11 @@ import './App.css';
 // import PatientCreateAccount from './pages/patient/CreateAccount';
 // import CheckIn from './pages/patient/CheckIn';
 import Dashboard from './pages/hospital/Dashboard';
+// import AllergyInput from './pages/hospital/inputScreens/AllergyInput';
+// import ImmunizationInput from './pages/hospital/inputScreens/ImmunizationInput';
+// import MedicationInput from './pages/hospital/inputScreens/MedicationInput';
+// import TestInput from './pages/hospital/inputScreens/TestInput';
+// import TransactionInput from './pages/hospital/inputScreens/TransactionInput';
 
 function App() {
   return (

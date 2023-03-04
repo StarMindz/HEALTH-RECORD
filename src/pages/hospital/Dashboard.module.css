@@ -1,3 +1,9 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .main_cont {
   display: grid;
   grid-template-columns: 20% 80%;
@@ -59,6 +65,7 @@
   border-radius: 16px;
   padding: 40px;
   background-color: #d9d9d9;
+  margin-bottom: 47px;
 }
 
 .home {
@@ -161,7 +168,7 @@
   display: flex;
   width: 85%;
   flex-direction: column;
-  margin-top: 47px;
+  margin-bottom: 47px;
 }
 
 .subsection_horizontal {
@@ -217,3 +224,14 @@
   padding-left: 19px;
   transition: 0.5s;
 }
+
+.none {
+  display: none;
+}
+
+.inputModal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+

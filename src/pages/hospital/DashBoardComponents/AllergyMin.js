@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import PropTypes from 'prop-types';
 import style from '../Dashboard.module.css';
 import add from '../../../assets/icons/add.png';
 
-const AllergyMin = () => {
+const AllergyMin = ({ input }) => {
   const dummyData = [
     {
       id: 1,
@@ -23,13 +26,17 @@ const AllergyMin = () => {
     },
   ];
 
+  const openInput = () => {
+    input('allergy');
+  };
+
   const html = (
     <div className={style.subsection}>
       <div className={style.subsection_head}>
         <h2 className={style.subsection_title}>Allergies</h2>
         <div className={style.edit_cont}>
-          <img className={style.edit_icon} src={add} alt="Edit" />
-          <h2 className={style.add_text}>Add Allergies</h2>
+          <img className={style.edit_icon} src={add} alt="Add" onClick={openInput} />
+          <h2 className={style.add_text} onClick={openInput}>Add Allergies</h2>
         </div>
       </div>
       <hr className={style.subsection_horizontal} />
@@ -50,4 +57,13 @@ const AllergyMin = () => {
 
   return html;
 };
+
+AllergyMin.propTypes = {
+  input: PropTypes.func,
+};
+
+AllergyMin.defaultProps = {
+  input: '',
+};
+
 export default AllergyMin;
