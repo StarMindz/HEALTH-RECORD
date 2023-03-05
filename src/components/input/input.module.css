@@ -1,0 +1,52 @@
+.input {
+  height: 24px;
+  border-color: #79747E;
+  border-radius: 4px;
+  width: 456px;
+  font-family: Roboto;
+  font-size: 14px;
+  padding: 16px;
+  outline: none;
+}
+
+.big_input {
+  height: 100px;
+  border-color: #79747E;
+  border-radius: 4px;
+  width: 456px;
+  font-family: Roboto;
+  font-size: 14px;
+  padding: 16px;
+  outline: none;
+}
+
+.input2 {
+  width: 490px;
+  height: 56px;
+  outline: none;
+  -webkit-appearance: listbox;
+  appearance: listbox;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+.main_cont {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.input_label {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  background-color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: Roboto;
+  font-size: 12px;
+  height: 16px;
+}
