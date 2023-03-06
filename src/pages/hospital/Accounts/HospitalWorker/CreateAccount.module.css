@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('./../../assets/doctor.jpg');
+  background-image: url('./../../../../assets/doctor.jpg');
   background-size: cover;
 }
 

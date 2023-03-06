@@ -1,4 +1,8 @@
 import './App.css';
+// import HospitalAdminSignIn from './pages/hospital/Accounts/HospitalAdmin/SignIn';
+// import HospitalWorkerSignIn from './pages/hospital/Accounts/HospitalWorker/SignIn';
+// import HospitalAdminCreateAccount from './pages/hospital/Accounts/HospitalAdmin/CreateAccount';
+// import HospitalWorkerEnrol from './pages/hospital/Accounts/HospitalWorker/CreateAccount';
 // import PatientSignIn from './pages/patient/SignIn';
 // import PatientCreateAccount from './pages/patient/CreateAccount';
 // import CheckIn from './pages/patient/CheckIn';

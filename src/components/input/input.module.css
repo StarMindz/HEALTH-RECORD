@@ -50,3 +50,11 @@
   font-size: 12px;
   height: 16px;
 }
+
+@media (max-width: 720px) {
+  .input,
+  .big_input,
+  .input2 {
+    width: 90%;
+  }
+}
