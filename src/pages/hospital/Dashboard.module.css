@@ -235,3 +235,61 @@
   width: 100%;
 }
 
+@media (max-width: 1200px) {
+  .side_bar {
+    flex-direction: row;
+    height: 50px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .main_cont {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .company_name {
+    display: none;
+  }
+
+  .item_text {
+    display: none;
+  }
+
+ .menu_items {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  align-items: center;
+  justify-content: flex-end;
+ }
+
+ .active {
+  padding: 0;
+ }
+
+ .side_bar_item {
+  justify-content: center;
+  width: 50px;
+  gap: 10px;
+ }
+
+ .profile_min_main {
+  flex-wrap: wrap;
+ }
+
+ .main_subsection {
+  height: auto;
+ }
+
+ .genotype_info {
+  margin: 47px;
+ }
+}
+
+@media (max-width: 764px) {
+  *{
+    font-size: 14px;
+  }
+}

@@ -35,3 +35,14 @@
   font-weight: 500;
   font-size: 48px;
 }
+
+@media (max-width: 1023px) {
+  .check_in_cont {
+    width: 80%;
+  }
+
+  .heading {
+    text-align: center;
+    font-size: 38px;
+  }
+}

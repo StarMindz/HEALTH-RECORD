@@ -67,33 +67,35 @@ const Dashboard = () => {
       <div className={showDashboard ? style.main_cont : style.none}>
         <div className={style.side_bar}>
           <h1 className={style.company_name}>Health Scribe</h1>
-          <div className={`${style.side_bar_item} ${active === 'home' ? style.active : ''}`} role="button" onClick={() => handleClick('home')}>
-            <img className={style.item_img} src={home} alt="home" />
-            <h2 className={style.item_text}>Home</h2>
-          </div>
-          <div className={`${style.side_bar_item} ${active === 'profile' ? style.active : ''}`} role="button" onClick={() => handleClick('profile')}>
-            <img className={style.item_img} src={profile} alt="medical profile" />
-            <h2 className={style.item_text}>Medical Profile</h2>
-          </div>
-          <div className={`${style.side_bar_item} ${active === 'medication' ? style.active : ''}`} role="button" onClick={() => handleClick('medication')}>
-            <img className={style.item_img} src={medication} alt="medications" />
-            <h2 className={style.item_text}>Medications</h2>
-          </div>
-          <div className={`${style.side_bar_item} ${active === 'allergy' ? style.active : ''}`} role="button" onClick={() => handleClick('allergy')}>
-            <img className={style.item_img} src={allergy} alt="allergies" />
-            <h2 className={style.item_text}>Allergies</h2>
-          </div>
-          <div className={`${style.side_bar_item} ${active === 'immunization' ? style.active : ''}`} role="button" onClick={() => handleClick('immunization')}>
-            <img className={style.item_img} src={immunization} alt="immunization" />
-            <h2 className={style.item_text}>Immunization</h2>
-          </div>
-          <div className={`${style.side_bar_item} ${active === 'test' ? style.active : ''}`} role="button" onClick={() => handleClick('test')}>
-            <img className={style.item_img} src={tests} alt="tests" />
-            <h2 className={style.item_text}>Tests</h2>
-          </div>
-          <div className={`${style.side_bar_item} ${active === 'transaction' ? style.active : ''}`} role="button" onClick={() => handleClick('transaction')}>
-            <img className={style.item_img} src={transaction} alt="transaction records" />
-            <h2 className={style.item_text}>Transaction Records</h2>
+          <div className={style.menu_items}>
+            <div className={`${style.side_bar_item} ${active === 'home' ? style.active : ''}`} role="button" onClick={() => handleClick('home')}>
+              <img className={style.item_img} src={home} alt="home" />
+              <h2 className={style.item_text}>Home</h2>
+            </div>
+            <div className={`${style.side_bar_item} ${active === 'profile' ? style.active : ''}`} role="button" onClick={() => handleClick('profile')}>
+              <img className={style.item_img} src={profile} alt="medical profile" />
+              <h2 className={style.item_text}>Medical Profile</h2>
+            </div>
+            <div className={`${style.side_bar_item} ${active === 'medication' ? style.active : ''}`} role="button" onClick={() => handleClick('medication')}>
+              <img className={style.item_img} src={medication} alt="medications" />
+              <h2 className={style.item_text}>Medications</h2>
+            </div>
+            <div className={`${style.side_bar_item} ${active === 'allergy' ? style.active : ''}`} role="button" onClick={() => handleClick('allergy')}>
+              <img className={style.item_img} src={allergy} alt="allergies" />
+              <h2 className={style.item_text}>Allergies</h2>
+            </div>
+            <div className={`${style.side_bar_item} ${active === 'immunization' ? style.active : ''}`} role="button" onClick={() => handleClick('immunization')}>
+              <img className={style.item_img} src={immunization} alt="immunization" />
+              <h2 className={style.item_text}>Immunization</h2>
+            </div>
+            <div className={`${style.side_bar_item} ${active === 'test' ? style.active : ''}`} role="button" onClick={() => handleClick('test')}>
+              <img className={style.item_img} src={tests} alt="tests" />
+              <h2 className={style.item_text}>Tests</h2>
+            </div>
+            <div className={`${style.side_bar_item} ${active === 'transaction' ? style.active : ''}`} role="button" onClick={() => handleClick('transaction')}>
+              <img className={style.item_img} src={transaction} alt="transaction records" />
+              <h2 className={style.item_text}>Transaction Records</h2>
+            </div>
           </div>
         </div>
         <div className={style.main_infos}>

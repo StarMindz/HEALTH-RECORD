@@ -1,22 +1,22 @@
 import style from './CreateAccount.module.css';
-import Input from '../../components/input/Input';
-import Input2 from '../../components/input/Input2';
-import Button from '../../components/button/Button';
+import Input from '../../../../components/input/Input';
+import Button from '../../../../components/button/Button';
 
-const PatientCreateAccount = () => {
+const HospitalWorkerEnrol = () => {
   const html = (
     <div className={style.main_cont}>
       <div className={style.left_cont}>
         <div className={style.background}>
           <p className={style.intro}>
-            Save your health records with ease and get access to them anytime, anywhere.
+            Get quick, secure access to your patients health records
+            Enrol to provide the best possible care for your patients
           </p>
         </div>
       </div>
       <div className={style.right_cont}>
         <div className={style.form_cont}>
           <h1 className={style.heading}>
-            Create new account
+            Enrol Health worker
           </h1>
           <form className={style.form}>
             <Input
@@ -33,13 +33,8 @@ const PatientCreateAccount = () => {
             />
             <Input
               type="text"
-              label="National Identification Number"
-              placeholder="NIN"
-              required
-            />
-            <Input2
-              options={['Male', 'Female']}
-              label="Gender"
+              label="Active Phone Number"
+              placeholder="Phone number"
               required
             />
             <Input
@@ -50,9 +45,8 @@ const PatientCreateAccount = () => {
             />
             <Input
               type="text"
-              label="Phone Number"
-              placeholder="Phone number"
-              required
+              label="Specialty"
+              placeholder="Doctor"
             />
             <Input
               type="password"
@@ -84,4 +78,4 @@ const PatientCreateAccount = () => {
   return html;
 };
 
-export default PatientCreateAccount;
+export default HospitalWorkerEnrol;
