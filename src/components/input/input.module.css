@@ -7,6 +7,7 @@
   font-size: 14px;
   padding: 16px;
   outline: none;
+  position: relative;
 }
 
 .big_input {
@@ -49,11 +50,35 @@
   font-family: Roboto;
   font-size: 12px;
   height: 16px;
+  z-index: 2;
+}
+
+.error {
+  width: 456px;
+  color: red;
+  margin-top: 10px;
+  font-family: Roboto;
+  font-size: 14px;
+}
+
+.show {
+  display: block;
+}
+
+.noDisplay {
+  display: none;
+}
+
+.eye {
+  position: absolute;
+  top: 20px;
+  right: 10px;
 }
 
 @media (max-width: 720px) {
   .input,
   .big_input,
+  .error
   .input2 {
     width: 90%;
   }

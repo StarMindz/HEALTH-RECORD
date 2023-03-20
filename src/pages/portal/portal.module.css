@@ -1,0 +1,83 @@
+.main_cont {
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  align-items: center;
+  background: url('./../../assets/medical_record.jpg');
+  min-height: 100vh;
+}
+
+.background {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 10, 3, 0.6);
+  height: 100%;
+  min-height: 100vh;
+}
+
+.heading {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 56px; 
+  text-align: center;
+  color: #F0851A;  
+}
+
+.card_grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 80px;
+  gap: 32px;
+  margin-bottom: 100px;
+}
+
+.card_1,
+.card_2,
+.card_3 {
+  width: 270px;
+  height: 360px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 15px;
+}
+
+.card_1, .card_3 {
+  background: #6d9F46;
+}
+
+.card_2 {
+  background-color: #C86F16;;
+}
+
+.card_head {
+  margin-top: 48px;
+  font-weight: 400;
+  font-family: Roboto;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+.card_sub_head {
+  margin-top: 16px;
+  font-size: 18px;
+  font-family: Roboto;
+}
+
+.paragraph {
+  margin-top: 28px;
+  margin-bottom: 48px;
+  text-align: center;
+  font-family: Roboto;
+  width: 250px;
+}

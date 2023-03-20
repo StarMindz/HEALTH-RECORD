@@ -1,0 +1,57 @@
+.cancel {
+  position: absolute;
+  color: rgb(78, 76, 76);
+  font-size: 24px;
+  border-radius: 5%;
+  padding: 5px;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.cancel:hover {
+  color: red;
+}
+
+.status {
+  position: absolute;
+  top: 10px;
+  right: (50% + 60px);
+}
+
+.status > img {
+  width: 60px;
+  height: 60px
+}
+
+.modal_container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(78, 76, 76);
+  top: 50%;
+  left: 50%;
+  max-width: 320px;
+  width: 70%;
+  height: 40%;
+  padding-left: 5px;
+  padding-right: 5px;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  background-color: #fdd8b3;
+  box-shadow: -3px -5px 9px #ffffff73, 5px 5px 9px rgba(94, 104, 121, 0.288);
+  border-radius: 10px;
+}
+
+.display {
+  display: block;
+}
+
+.noDisplay {
+  display: none;
+}

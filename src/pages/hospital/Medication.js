@@ -59,4 +59,5 @@ Medication.propTypes = {
 Medication.defaultProps = {
   input: '',
 };
+
 export default Medication;
