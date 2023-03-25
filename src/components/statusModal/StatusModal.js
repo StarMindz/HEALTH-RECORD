@@ -13,7 +13,9 @@ const StatusModal = (props) => {
   } = props;
   const html = (
     <div className={style.modal_container}>
-      {text}
+      <div className={style.text_div}>
+        {text}
+      </div>
       <div className={style.cancel} onClick={back}>X</div>
       <div className={style.status}>
         <img className={status ? style.display : style.noDisplay} src={good} alt="status" />

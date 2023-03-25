@@ -13,8 +13,6 @@ const Intro = () => {
             Your complete Health story at your finger tip.
           </h1>
           <p className={style.main_paragraph}>
-            Your health is your most valuable asset.
-            Protect and manage it like never before.
             Say goodbye to the hassle of paper records and hello to the future of digital health
           </p>
           <div className={style.main_button}>

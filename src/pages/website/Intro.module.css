@@ -21,7 +21,7 @@
 }
 
 .main_paragraph {
-  font-size: 20px;
+  font-size: 22px;
   line-height: 35px;
   font-family: Roboto;
 }
@@ -79,9 +79,9 @@
   }
 
   .main_text{
-    text-align: center;
     margin: 0;
     width: 100%;
+    align-items: flex-start;
   }
 
   .main_images {
@@ -91,7 +91,6 @@
   }
 
   .main_button {
-    margin: auto;
     margin-top: 30px;
   }
 

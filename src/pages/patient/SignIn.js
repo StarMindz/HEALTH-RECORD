@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import AuthContext from '../../context/AuthProvider';
 import StatusModal from '../../components/statusModal/StatusModal';
 import style from './SignIn.module.css';
 import Input from '../../components/input/Input';
@@ -8,6 +9,7 @@ import Button from '../../components/button/Button';
 import image from '../../assets/typing.png';
 
 const PatientSignIn = () => {
+  const { setAuth } = useContext(AuthContext);
   const [status, setStatus] = useState('Something went wrong. Action failed');
   const [statusState, setStatusState] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
@@ -21,8 +23,8 @@ const PatientSignIn = () => {
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // prevent page refresh
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const {
       username, password,
@@ -41,19 +43,23 @@ const PatientSignIn = () => {
       return;
     }
 
-    axios.post('http://tech-mavericks.ue.r.appspot.com/user/login', values)
-      .then(() => {
-      // Handle successful response and Show popup
-        setStatus('Form submitted successfully!');
-        setStatusState(true);
-        setShowStatus(true);
-      })
-      .catch(() => {
-      // Handle error response
-        setStatus('Something went wrong. Form was not submitted');
-        setStatusState(false);
-        setShowStatus(true);
+    try {
+      const { username, password } = values;
+      const payload = `grant_type=&username=${username}&password=${password}&scope=&client_id=&client_secret=`;
+      const response = await axios.post('http://tech-mavericks.ue.r.appspot.com/user/login', payload);
+      console.log(response); // log the response data
+      setAuth({
+        username, password,
       });
+      setStatus('Form submitted successfully!');
+      setStatusState(true);
+      setShowStatus(true);
+    } catch (error) {
+      console.error(error);
+      setStatus('Something went wrong. Form was not submitted');
+      setStatusState(false);
+      setShowStatus(true);
+    }
   };
 
   const onBack = () => {

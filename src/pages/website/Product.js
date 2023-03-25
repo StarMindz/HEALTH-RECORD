@@ -1,9 +1,11 @@
-import style from './Insurance.module.css';
+import style from './Product.module.css';
+import Desktop from './Services/Desktop';
 
 const Services = () => {
   const html = (
     <div className={style.services}>
-      <h1>Our products</h1>
+      <h1 className={style.service_head}>Our services</h1>
+      <Desktop />
     </div>
   );
   return html;

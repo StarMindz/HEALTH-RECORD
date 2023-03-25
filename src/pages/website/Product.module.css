@@ -1,0 +1,22 @@
+.services {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.service_head {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 56px;
+}
+
+@media (max-width: 950px) {
+  .service_head {
+    font-size: 38px;
+  }
+}

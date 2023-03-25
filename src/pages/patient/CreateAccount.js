@@ -128,9 +128,26 @@ const PatientCreateAccount = () => {
         setStatus('Form submitted successfully!');
         setStatusState(true);
         setShowStatus(true);
+        setValues({
+          name: '',
+          email: '',
+          password1: '',
+          password2: '',
+          gender: 'M',
+          dob: '',
+          phone: '',
+          address: '',
+          insuranceID: 'Nil',
+        });
       })
-      .catch(() => {
+      .catch((error) => {
       // Handle error response
+        if (!error && error.response.request.status === 409) {
+          setStatus(JSON.parse(error.response.request.response).detail);
+          setStatusState(false);
+          setShowStatus(true);
+          return;
+        }
         setStatus('Something went wrong. Form was not submitted');
         setStatusState(false);
         setShowStatus(true);

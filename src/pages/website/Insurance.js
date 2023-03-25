@@ -1,6 +1,6 @@
 import style from './Insurance.module.css';
 import image1 from '../../assets/insurance.jpg';
-import image2 from '../../assets/report.png';
+import image2 from '../../assets/report.jpg';
 
 const Insurance = () => {
   const html = (
@@ -11,12 +11,8 @@ const Insurance = () => {
             Looking to improve your insurance company&apos;s bottom line?
           </h1>
           <p className={style.main_paragraph}>
-            <br />
-            With our platform, you can reduce administrative costs,
-            prevent duplicate tests and procedures, and even identify instances of fraud and abuse.
-            <br />
-            By providing your clients with easy and secure access to their medical records,
-            you can enhance customer satisfaction and loyalty.
+            Streamline costs, detect fraud, prevent duplicate tests and procedures
+            and earn customer loyalty with our platform
           </p>
         </div>
       </div>
