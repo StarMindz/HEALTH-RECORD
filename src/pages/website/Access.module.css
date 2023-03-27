@@ -105,3 +105,14 @@
     font-size: 40px;
   }
 }
+
+@media (max-width: 280px) {
+  .main_text {
+    transform: scale(0.6);
+  }
+
+  .main_images {
+    transform: scale(0.3);
+    margin-left: 0;
+  }
+}

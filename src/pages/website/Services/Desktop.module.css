@@ -1,7 +1,6 @@
 .intro {
   display: grid;
   grid-template-columns: 60% 40%;
-  background-color: transparent;
   min-height: 700px;
   grid-auto-flow: dense;
   background-color: rgba(202, 106, 10, 1);
@@ -94,5 +93,15 @@
 
   .main_heading {
     font-size: 40px;
+  }
+}
+
+@media (max-width: 280px) {
+  .main_text {
+    transform: scale(0.6);
+  }
+
+  .main_images {
+    transform: scale(0.3);
   }
 }
