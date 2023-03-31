@@ -1,5 +1,5 @@
 import style from './Mobile.module.css';
-import image1 from '../../../assets/desktop.png';
+import image1 from '../../../assets/mobile.png';
 
 const Mobile = () => {
   const html = (
@@ -9,7 +9,7 @@ const Mobile = () => {
           <h1 className={style.main_heading}>
             The ultimate health companion
             <br />
-            Our patient app
+            Our patient app - coming soon
           </h1>
           <p className={style.main_paragraph}>
             Experience a personalized healthcare experience tailored to your unique needs,

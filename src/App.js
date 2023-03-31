@@ -1,14 +1,14 @@
 import './App.css';
-// import HospitalAdminSignIn from './pages/hospital/Accounts/HospitalAdmin/SignIn';
-// import HospitalWorkerSignIn from './pages/hospital/Accounts/HospitalWorker/SignIn';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from 'react-router-dom';
+import HospitalAdminSignIn from './pages/hospital/Accounts/HospitalAdmin/SignIn';
+import HospitalWorkerSignIn from './pages/hospital/Accounts/HospitalWorker/SignIn';
 import InsuranceCreateAccount from './pages/insurance/Account/CreateAccount';
 import HospitalAdminCreateAccount from './pages/hospital/Accounts/HospitalAdmin/CreateAccount';
-// import HospitalWorkerEnrol from './pages/hospital/Accounts/HospitalWorker/CreateAccount';
+import HospitalWorkerEnrol from './pages/hospital/Accounts/HospitalWorker/CreateAccount';
 import PatientSignIn from './pages/patient/SignIn';
 import PatientCreateAccount from './pages/patient/CreateAccount';
 // import CheckIn from './pages/patient/CheckIn';
@@ -33,9 +33,11 @@ function App() {
         <Route path="signup/patient" element={<PatientCreateAccount />} />
         <Route path="signin/patient" element={<PatientSignIn />} />
         <Route path="/signup/hospital" element={<HospitalAdminCreateAccount />} />
+        <Route path="/signin/hospital" element={<HospitalAdminSignIn />} />
+        <Route path="/signup/healthworker" element={<HospitalWorkerEnrol />} />
+        <Route path="/signin/healthworker" element={<HospitalWorkerSignIn />} />
         <Route path="/signup/insurance" element={<InsuranceCreateAccount />} />
-        <Route path="/signup/insurances" element={<Dashboard />} />
-        <Route path="/status" element={<StatusModal text="good" status />} />
+        <Route path="/status/good" element={<StatusModal text="good" status />} />
       </Routes>
     </Router>
   );

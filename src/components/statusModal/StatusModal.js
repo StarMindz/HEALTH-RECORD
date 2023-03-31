@@ -12,7 +12,7 @@ const StatusModal = (props) => {
     back,
   } = props;
   const html = (
-    <div className={style.modal_container}>
+    <div className={status ? style.modal_container2 : style.modal_container}>
       <div className={style.text_div}>
         {text}
       </div>

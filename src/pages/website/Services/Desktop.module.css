@@ -73,13 +73,12 @@
   .main_text{
     margin: 0;
     width: 100%;
-    margin-top: -50px;
   }
 
   .main_images {
     transform: scale(0.4);
     margin: 0;
-    margin-top: -100px;
+    margin-top: -150px;
   }
 
   .main_button {

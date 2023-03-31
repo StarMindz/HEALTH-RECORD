@@ -1,5 +1,5 @@
-import style from './Desktop.module.css';
-import image1 from '../../../assets/desktop.png';
+import style from './WebApp.module.css';
+import image1 from '../../../assets/insurance_dashboard.png';
 
 const WebApp = () => {
   const html = (

@@ -4,15 +4,21 @@ import Insurance from './Insurance';
 import style from './Intro.module.css';
 import Hospital from './hospital';
 import Services from './Product';
+import Contact from './Contact';
 
 const Home = () => {
   const html = (
-    <div className={style.Home}>
+    <div className={style.Home} id="home">
       <Intro />
       <Access />
       <Insurance />
       <Hospital />
-      <Services />
+      <div id="service">
+        <Services />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
     </div>
   );
   return html;

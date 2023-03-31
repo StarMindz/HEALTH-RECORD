@@ -47,15 +47,14 @@ const PatientSignIn = () => {
       const { username, password } = values;
       const payload = `grant_type=&username=${username}&password=${password}&scope=&client_id=&client_secret=`;
       const response = await axios.post('http://tech-mavericks.ue.r.appspot.com/user/login', payload);
-      console.log(response); // log the response data
       setAuth({
         username, password,
       });
+      console.log(response);
       setStatus('Form submitted successfully!');
       setStatusState(true);
       setShowStatus(true);
     } catch (error) {
-      console.error(error);
       setStatus('Something went wrong. Form was not submitted');
       setStatusState(false);
       setShowStatus(true);

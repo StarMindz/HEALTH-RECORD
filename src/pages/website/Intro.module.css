@@ -18,6 +18,18 @@
   font-weight: 700;
   font-family: Roboto;
   color: #496A2F;
+  animation: anim3 2s forwards 3s;
+  /* position: relative; */
+}
+
+@keyframes anim3 {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 0%;
+  }
 }
 
 .main_paragraph {
