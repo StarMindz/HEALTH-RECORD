@@ -5,9 +5,10 @@ const Button = (props) => {
   const {
     text,
     btnType,
+    onClick,
   } = props;
   const html = (
-    <button type="submit" className={`button_${btnType}`}>{text}</button>
+    <button onClick={onClick} type="submit" className={`button_${btnType}`}>{text}</button>
   );
   return html;
 };
@@ -15,11 +16,13 @@ const Button = (props) => {
 Button.propTypes = {
   text: PropTypes.string,
   btnType: PropTypes.number,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   text: '',
   btnType: '',
+  onClick: () => '',
 };
 
 export default Button;

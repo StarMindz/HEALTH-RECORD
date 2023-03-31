@@ -1,0 +1,84 @@
+.footer {
+  padding: 0;
+  padding-top: 55px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+  color: white;
+  width: 100%;
+  font-family: Roboto;
+  background: linear-gradient(6.86deg, #375023 12.25%, rgba(91, 132, 58, 0.85) 101.41%);
+}
+
+.company {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.company_head {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.paragraph {
+  font-size: 18px;
+  width: 270px;
+  margin-top: 8px;
+}
+
+.socials {
+ display: flex;
+ flex-direction: row;
+ gap: 20px;
+ align-items: center;
+ margin-top: 20px;
+}
+
+.horizontal {
+  width: 80%;
+  color: rgba(202, 196, 208, 1);
+  margin-bottom: 77px;
+}
+
+.company_links,
+.quick_links,
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 16px;
+  gap: 10px
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.footer a:hover {
+  color: #f0851a;
+}
+
+.footer_head {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.socials_icon {
+  cursor: pointer;
+  width: 40px;
+  height: 36px;
+}
+
+@media (max-width: 800px) {
+  .company {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+}

@@ -68,6 +68,14 @@
   margin: 5px;
 }
 
+.display {
+  display: block;
+}
+
+.noDisplay {
+  display: none;
+}
+
 @media (max-width: 1023px) {
   .main_cont {
     flex-direction: column;

@@ -5,6 +5,8 @@ button {
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
+  transition: color 0.4s linear;
+  position: relative;
 }
 
 .button_1 {
@@ -18,3 +20,24 @@ button {
   background-color: #6d9F46;
   border-color: transparent;
 }
+
+.button_3 {
+  color: #fff;
+  background-color: #f0851a;
+  border-color: transparent;
+}
+
+.button_4 {
+  color: #fff;
+  background-color: transparent;
+  border-color: white;
+}
+
+.button_5 {
+  color: #fff;
+  background-color: #f0851a;
+  border-color: transparent;
+  height: 60px !important;
+  font-size: 18px;
+}
+
