@@ -7,7 +7,7 @@ const CheckIn = () => {
     <div className={style.check_in}>
       <div className={style.check_in_cont}>
         <div className={style.sub_cont}>
-          <h1 className={style.heading}>Patients Record</h1>
+          <h1 className={style.heading}>Check In</h1>
           <div className={style.input}>
             <Input
               type="text"
