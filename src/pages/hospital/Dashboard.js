@@ -21,6 +21,7 @@ import allergy from '../../assets/icons/allergy.png';
 import immunization from '../../assets/icons/immunization.png';
 import tests from '../../assets/icons/test.png';
 import transaction from '../../assets/icons/transaction.png';
+import logo from '../../assets/Harchive.png';
 
 const Dashboard = () => {
   const [active, setActive] = useState('home');
@@ -66,7 +67,7 @@ const Dashboard = () => {
     <div className={style.dashboard}>
       <div className={showDashboard ? style.main_cont : style.none}>
         <div className={style.side_bar}>
-          <h1 className={style.company_name}>Health Scribe</h1>
+          <img className={style.company_name} src={logo} alt="logo" />
           <div className={style.menu_items}>
             <div className={`${style.side_bar_item} ${active === 'home' ? style.active : ''}`} role="button" onClick={() => handleClick('home')}>
               <img className={style.item_img} src={home} alt="home" />
