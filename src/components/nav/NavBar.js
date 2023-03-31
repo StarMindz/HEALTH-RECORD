@@ -40,13 +40,13 @@ const NavBar = () => {
         <a onClick={handleClick} href="#service" className={style.menu_item}>Services</a>
         <a onClick={handleClick} href="#contact" className={style.menu_item}>Contact us</a>
         <div className={style.nav_buttons}>
-          <Link to="/signup">
+          <Link to="/dashboard">
             <Button
               text="Sign Up"
               btnType={4}
             />
           </Link>
-          <Link to="/signin/patient">
+          <Link to="/CheckIn">
             <Button
               text="Log In"
               btnType={3}
