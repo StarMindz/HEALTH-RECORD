@@ -11,7 +11,7 @@ import HospitalAdminCreateAccount from './pages/hospital/Accounts/HospitalAdmin/
 import HospitalWorkerEnrol from './pages/hospital/Accounts/HospitalWorker/CreateAccount';
 import PatientSignIn from './pages/patient/SignIn';
 import PatientCreateAccount from './pages/patient/CreateAccount';
-// import CheckIn from './pages/patient/CheckIn';
+import CheckIn from './pages/patient/CheckIn';
 import Dashboard from './pages/hospital/Dashboard';
 // import AllergyInput from './pages/hospital/inputScreens/AllergyInput';
 // import ImmunizationInput from './pages/hospital/inputScreens/ImmunizationInput';
@@ -38,6 +38,7 @@ function App() {
         <Route path="/signin/healthworker" element={<HospitalWorkerSignIn />} />
         <Route path="/signup/insurance" element={<InsuranceCreateAccount />} />
         <Route path="/status/good" element={<StatusModal text="good" status />} />
+        <Route path="/checkin" element={<CheckIn />} />
       </Routes>
     </Router>
   );
