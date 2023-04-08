@@ -8,11 +8,13 @@ import style from './CreateAccount.module.css';
 import Input from '../../../components/input/Input';
 import Button from '../../../components/button/Button';
 import StatusModal from '../../../components/statusModal/StatusModal';
+import Loading from '../../../components/loading/Loading';
 
 const InsuranceCreateAccount = () => {
   const [status, setStatus] = useState('Something went wrong. Action failed');
   const [statusState, setStatusState] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -84,12 +86,13 @@ const InsuranceCreateAccount = () => {
     event.preventDefault();
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*.,?]).{8,}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const ninRegex = /^\d{11}$/;
     const {
-      name, email, password1, password2, gender, dob, phone, address,
+      name, email, password1, password2, gender, dob, phone, address, nin,
     } = values;
 
     if (name === '' || email === '' || password1 === '' || password2 === '' || gender === '' || dob === '' || address === '' || phone === '') {
-      setStatus('All fields are required');
+      setStatus('All fields are required. Insurance ID is the only optional field');
       setStatusState(false);
       setShowStatus(true);
       return;
@@ -106,31 +109,44 @@ const InsuranceCreateAccount = () => {
       setShowStatus(true);
       return;
     }
+    if (!ninRegex.test(nin)) {
+      setStatus('Wrong NIN format');
+      setStatusState(false);
+      setShowStatus(true);
+      return;
+    }
     if (password1 !== password2) {
       setStatus('Passwords do not match');
       setStatusState(false);
       setShowStatus(true);
       return;
     }
-
-    axios.post('http://tech-mavericks.ue.r.appspot.com/patient/register', values)
+    setIsSubmitting(true);
+    axios.post('https://tech-mavericks-zervrkfgfa-ue.a.run.app/patient/register', values)
       .then(() => {
       // Handle successful response and Show popup
         setStatus('Form submitted successfully!');
+        setIsSubmitting(false);
         setStatusState(true);
         setShowStatus(true);
         setValues({
           name: '',
+          nin: '',
           email: '',
           password1: '',
           password2: '',
+          gender: 'M',
+          dob: '',
           phone: '',
+          address: '',
+          insuranceID: '',
         });
       })
       .catch((error) => {
       // Handle error response
-        if (!error && error.response.request.status === 409) {
-          setStatus(JSON.parse(error.response.request.response).detail);
+        setIsSubmitting(false);
+        if (error.response.status === 409) {
+          setStatus(error.response.data.detail);
           setStatusState(false);
           setShowStatus(true);
           return;
@@ -226,6 +242,9 @@ const InsuranceCreateAccount = () => {
             status={statusState}
             back={onBack}
           />
+        </div>
+        <div className={isSubmitting ? style.display : style.noDisplay}>
+          <Loading />
         </div>
       </div>
     </div>

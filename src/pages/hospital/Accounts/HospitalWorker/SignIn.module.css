@@ -83,17 +83,22 @@
 
   .heading {
     text-align: center;
+    font-size: 36px;
+  }
+
+  .form_cont {
+    width: 80%
   }
 
   .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
+    width: 100%;
   }
 
   .button_div {
     flex-direction:column-reverse;
     justify-content: space-between;
     height: 100px;
+    width: 80%
   }
 }

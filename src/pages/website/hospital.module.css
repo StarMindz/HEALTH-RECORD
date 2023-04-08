@@ -2,8 +2,25 @@
   display: grid;
   grid-template-columns: 60% 40%;
   background-color: #fff;
-  min-height: 700px;
   grid-auto-flow: dense;
+  min-height: 700px;
+}
+
+.intro.animate {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 4s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .main_text {
@@ -12,6 +29,7 @@
   align-items: center;
   width: 440px;
   justify-content: center;
+  margin: 0
 }
 
 .main_heading {
@@ -77,19 +95,18 @@
     flex-direction: column-reverse;
     box-sizing: border-box;
     align-items: center;
-    margin-top: -250px;
+    margin-bottom: 20px;
   }
 
-  .main_text {
+  .main_text{
     margin: 0;
     width: 100%;
-    margin-top: -50px;
+    transform: scale(0.75);
   }
 
   .main_images {
     transform: scale(0.4);
     margin: 0;
-    margin-top: -100px;
   }
 
   .main_heading,

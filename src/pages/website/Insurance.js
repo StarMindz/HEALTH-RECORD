@@ -1,10 +1,24 @@
+import React, { useRef, useEffect } from 'react';
 import style from './Insurance.module.css';
 import image1 from '../../assets/insurance.jpg';
 import image2 from '../../assets/report.jpg';
 
 const Insurance = () => {
+  const imagesRef = useRef(null);
+
+  useEffect(() => {
+    const images = imagesRef.current;
+    const fadeInUp = () => {
+      if (images.getBoundingClientRect().top <= window.innerHeight * 1) {
+        images.classList.add(style.animate);
+      }
+    };
+    window.addEventListener('scroll', fadeInUp);
+    return () => window.removeEventListener('scroll', fadeInUp);
+  }, []);
+
   const html = (
-    <div className={style.intro}>
+    <div className={style.intro} ref={imagesRef}>
       <div className={style.main_text}>
         <div className={style.main_text_cont}>
           <h1 className={style.main_heading}>

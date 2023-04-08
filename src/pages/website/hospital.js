@@ -1,10 +1,24 @@
+import React, { useRef, useEffect } from 'react';
 import style from './hospital.module.css';
 import image2 from '../../assets/hospital_tech.jpg';
 import image1 from '../../assets/doctor_laptop.jpg';
 
 const Hospital = () => {
+  const imagesRef = useRef(null);
+
+  useEffect(() => {
+    const images = imagesRef.current;
+    const fadeInUp = () => {
+      if (images.getBoundingClientRect().top <= window.innerHeight * 1) {
+        images.classList.add(style.animate);
+      }
+    };
+    window.addEventListener('scroll', fadeInUp);
+    return () => window.removeEventListener('scroll', fadeInUp);
+  }, []);
+
   const html = (
-    <div className={style.intro}>
+    <div className={style.intro} ref={imagesRef}>
       <div className={style.main_images}>
         <img className={style.first_image} src={image1} alt="Doctor laughing" />
         <img className={style.second_image} src={image2} alt="Doctor laughing" />

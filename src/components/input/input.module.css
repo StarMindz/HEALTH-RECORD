@@ -78,7 +78,7 @@
 @media (max-width: 720px) {
   .input,
   .big_input,
-  .error
+  .error,
   .input2 {
     width: 90%;
   }

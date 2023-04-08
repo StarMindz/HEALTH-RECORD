@@ -94,10 +94,15 @@
 
   .heading {
     text-align: center;
+    font-size: 36px;
+  }
+
+  .form_cont {
+    width: 80%
   }
 
   .form {
-    align-items: center;
+    /* align-items: center; */
     width: 100%;
   }
 
@@ -105,5 +110,6 @@
     flex-direction:column-reverse;
     justify-content: space-between;
     height: 100px;
+    width: 80%
   }
 }
