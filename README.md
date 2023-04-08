@@ -55,10 +55,10 @@
   
  <!-- Features --> 
   
- ### Key Features <a name="key-features"></a> 
+### Key Features <a name="key-features"></a> 
   
- - [Securely store and manage health data]
- - [View health data in an organized and easy-to-use interface]
+ - Securely store and manage health data
+ - View health data in an organized and easy-to-use interface
  
   
  <p align="right">(<a href="#readme-top">back to top</a>)</p> 
