@@ -57,8 +57,8 @@
   
  ### Key Features <a name="key-features"></a> 
   
- - **[You can search for your NFT in the NFT section using the search bar]** 
- - **[Clicking the 'details' button navigates the user to a new page with more information]** 
+ - [Securely store and manage health data]
+ - [View health data in an organized and easy-to-use interface]
  
   
  <p align="right">(<a href="#readme-top">back to top</a>)</p> 
@@ -73,7 +73,7 @@
 
 >Link to live Demo 
 
-- [Click here to explore](https://nft-explore.netlify.app/) 
+- [Click here to explore](https://tech-marverick.netlify.app/) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,7 +85,7 @@ To get a local copy up and running, follow these steps.
 
 >clone the repo like this: 
 ​
-  git clone https://github.com/StarMindz/NFT-EXPLORER
+  git clone https://github.com/StarMindz/HEALTH-RECORD
 
 >Install the dependencies using `npm install` and then run the project from the root of the folder using this command `npm run start`
 
@@ -99,8 +99,7 @@ In order to run this project you need:
 
 ### Setup
 
-- Clone this repository to your desired folder: https://github.com/StarMindz/NFT-EXPLORER
-
+- Clone this repository to your desired folder: https://github.com/StarMindz/HEALTH-RECORD
 - cd into the folder
 
 ### Usage
@@ -132,9 +131,8 @@ To run tests, run the command "npm test"
 ## 🔭 Future Features <a name="future-features"></a>
 
 Some Future Features :
-- I will add a feature that allows you to search and NFT any NFT collection by name search
-- I will add a feature that allows you to see the trending and latest NFT's in the market place
-
+- Building a mobile app or responsive design for mobile devices
+- Integration with additional APIs
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -160,7 +158,7 @@ If you like this project, please give it a star and also follow me on GitHub for
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-- I would like to thank the CEO of Altura NFT Majd Hailat for giving me this fun test project to build
+- I would like to thank my other teammates who worked on the backend as well as the UI/UX of this platform.
 - Thumb ups to all the Naija Afrobeat Musicians whose beautiful music made building this project more fun
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
