@@ -81,3 +81,25 @@
   font-family: Roboto;
   width: 250px;
 }
+
+@media (max-width: 950px) {
+  .card_1,
+  .card_2,
+  .card_3 {
+  transform: scale(0.9);
+  }
+
+  .heading {
+    font-size: 30px;
+    line-height: auto; 
+    width: 90%;
+  }
+
+  .card_sub_head {
+    margin: 0;
+  }
+
+  .card_grid {
+    margin: 0;
+  }
+}

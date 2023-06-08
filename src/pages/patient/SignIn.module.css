@@ -81,6 +81,15 @@
     flex-direction: column;
   }
 
+  .form_cont {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 80%;
+    max-width: 480px;
+    width: 80%;
+  }
+
   .left_cont {
     display: none;
   }

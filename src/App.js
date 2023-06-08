@@ -20,7 +20,7 @@ import Dashboard from './pages/hospital/Dashboard';
 // import TransactionInput from './pages/hospital/inputScreens/TransactionInput';
 // import Intro from './pages/website/Intro';
 import LandingPage from './pages/website/LandingPage';
-import GetStarted from './pages/portal/SignIn';
+import GetStarted from './pages/portal/SignUp';
 import StatusModal from './components/statusModal/StatusModal';
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
       <Routes className="appContainer">
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<GetStarted />} />
+        <Route path="/signin" element={<PatientSignIn />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="signup/patient" element={<PatientCreateAccount />} />
         <Route path="signin/patient" element={<PatientSignIn />} />
