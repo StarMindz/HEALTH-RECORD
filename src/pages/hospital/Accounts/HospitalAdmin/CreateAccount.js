@@ -87,6 +87,7 @@ const HospitalAdminCreateAccount = () => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*.,?]).{8,}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const ninRegex = /^\d{11}$/;
+    const endPoint = 'https://tech-maverics.onrender.com/hospital/admin/register';
     const {
       name, email, password1, password2, gender, dob, phone, address, nin,
     } = values;
@@ -122,7 +123,7 @@ const HospitalAdminCreateAccount = () => {
       return;
     }
     setIsSubmitting(true);
-    axios.post('https://tech-mavericks-zervrkfgfa-ue.a.run.app/patient/register', values)
+    axios.post(endPoint, values)
       .then(() => {
       // Handle successful response and Show popup
         setStatus('Form submitted successfully!');
@@ -131,27 +132,19 @@ const HospitalAdminCreateAccount = () => {
         setShowStatus(true);
         setValues({
           name: '',
-          nin: '',
           email: '',
           password1: '',
           password2: '',
-          gender: 'M',
-          dob: '',
           phone: '',
-          address: '',
-          insuranceID: '',
+          hospitalID: '',
         });
       })
       .catch((error) => {
       // Handle error response
+        // Handle error response
         setIsSubmitting(false);
-        if (error.response.status === 409) {
-          setStatus(error.response.data.detail);
-          setStatusState(false);
-          setShowStatus(true);
-          return;
-        }
-        setStatus('Something went wrong. Form was not submitted');
+        const errorMessage = error.response.data.detail[0].msg;
+        setStatus(errorMessage);
         setStatusState(false);
         setShowStatus(true);
       });

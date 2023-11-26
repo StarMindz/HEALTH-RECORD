@@ -1,17 +1,20 @@
+/* eslint-disable camelcase */
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useState, useContext } from 'react';
-import AuthContext from '../../context/AuthProvider';
+import { useState } from 'react';
+// import AuthContext from '../../context/AuthProvider';
 import StatusModal from '../../components/statusModal/StatusModal';
 import style from './SignIn.module.css';
 import Input from '../../components/input/Input';
 import Button from '../../components/button/Button';
 import image from '../../assets/typing.png';
+import Loading from '../../components/loading/Loading';
 
 const PatientSignIn = () => {
-  const { setAuth } = useContext(AuthContext);
+  // const { setAuth } = useContext(AuthContext);
   const [status, setStatus] = useState('Something went wrong. Action failed');
   const [statusState, setStatusState] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
   const [values, setValues] = useState({
     username: '',
@@ -23,7 +26,13 @@ const PatientSignIn = () => {
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
+  const processToken = () => {
+    const cookiesString = document.cookie;
+    console.log(cookiesString);
+    console.log('Hi');
+  };
+
+  const signIn = async (event) => {
     event.preventDefault(); // prevent page refresh
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const {
@@ -42,20 +51,37 @@ const PatientSignIn = () => {
       setShowStatus(true);
       return;
     }
+    setIsSubmitting(true);
 
     try {
-      const { username, password } = values;
-      const payload = `grant_type=&username=${username}&password=${password}&scope=&client_id=&client_secret=`;
-      const response = await axios.post('http://tech-mavericks.ue.r.appspot.com/user/login', payload);
-      setAuth({
-        username, password,
-      });
+      // const endPoint = 'https://tech-maverics.onrender.com/auth/login';
+      // const response = await axios.post(endPoint, {
+      //   email: username,
+      //   password,
+      // });
+      const endPoint = `https://tech-maverics.onrender.com/auth/login?email=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+
+      const response = await axios.post(endPoint, {});
       console.log(response);
-      setStatus('Form submitted successfully!');
+      const { access_token, refresh_token } = response.data.tokens;
+      console.log(access_token);
+      console.log(refresh_token);
+
+      // Store tokens in secure HTTP-only cookies
+      document.cookie = `access_token=${access_token}; Secure; HttpOnly`;
+      document.cookie = `refresh_token=${refresh_token}; Secure; HttpOnly`;
+
+      setIsSubmitting(false);
+      setStatus('Signed in successfully!');
       setStatusState(true);
       setShowStatus(true);
+      processToken();
+      window.location.href = '/dashboard';
     } catch (error) {
-      setStatus('Something went wrong. Form was not submitted');
+      setIsSubmitting(false);
+      const errorMessage = error?.response?.data?.detail?.[0]?.msg ?? 'Something went wrong';
+      console.log(error);
+      setStatus(errorMessage);
       setStatusState(false);
       setShowStatus(true);
     }
@@ -111,7 +137,7 @@ const PatientSignIn = () => {
             <Button
               text="Sign in"
               btnType={2}
-              onClick={handleSubmit}
+              onClick={signIn}
             />
           </div>
         </div>
@@ -121,6 +147,9 @@ const PatientSignIn = () => {
             status={statusState}
             back={onBack}
           />
+        </div>
+        <div className={isSubmitting ? style.display : style.noDisplay}>
+          <Loading />
         </div>
       </div>
     </div>

@@ -5,22 +5,27 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import style from './CreateAccount.module.css';
+import Input2 from '../../../../components/input/Input2';
 import Input from '../../../../components/input/Input';
 import Button from '../../../../components/button/Button';
 import StatusModal from '../../../../components/statusModal/StatusModal';
+import Loading from '../../../../components/loading/Loading';
 
 const HospitalWorkerEnrol = () => {
   const [status, setStatus] = useState('Something went wrong. Action failed');
   const [statusState, setStatusState] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [values, setValues] = useState({
     name: '',
     email: '',
     password1: '',
     password2: '',
     specialty: 'Doctor',
+    gender: 'M',
     dob: '',
     phone: '',
+    hospitalID: '',
   });
 
   const [error, setError] = useState({
@@ -29,8 +34,10 @@ const HospitalWorkerEnrol = () => {
     password1: '',
     password2: '',
     specialty: 'Doctor',
+    gender: 'M',
     dob: '',
     phone: '',
+    hospitalID: '',
   });
 
   const onChange = (e) => {
@@ -88,6 +95,7 @@ const HospitalWorkerEnrol = () => {
     event.preventDefault();
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*.,?]).{8,}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const endPoint = 'https://tech-maverics.onrender.com/hospital/doctor/register';
     const {
       name, email, password1, password2, gender, dob, phone, address,
     } = values;
@@ -117,7 +125,7 @@ const HospitalWorkerEnrol = () => {
       return;
     }
 
-    axios.post('http://tech-mavericks.ue.r.appspot.com/patient/register', values)
+    axios.post(endPoint, values)
       .then(() => {
       // Handle successful response and Show popup
         setStatus('Form submitted successfully!');
@@ -129,19 +137,17 @@ const HospitalWorkerEnrol = () => {
           password1: '',
           password2: '',
           specialty: 'Doctor',
+          gender: 'M',
           dob: '',
           phone: '',
+          hospitalID: '',
         });
       })
       .catch((error) => {
       // Handle error response
-        if (!error && error.response.request.status === 409) {
-          setStatus(JSON.parse(error.response.request.response).detail);
-          setStatusState(false);
-          setShowStatus(true);
-          return;
-        }
-        setStatus('Something went wrong. Form was not submitted');
+        setIsSubmitting(false);
+        const errorMessage = error.response.data.detail[0].msg;
+        setStatus(errorMessage);
         setStatusState(false);
         setShowStatus(true);
       });
@@ -183,6 +189,13 @@ const HospitalWorkerEnrol = () => {
               onChange={onChange}
               value={values.email}
               name="email"
+            />
+            <Input2
+              options={['M', 'F']}
+              label="Gender"
+              onChange={onChange}
+              name="gender"
+              value={values.gender}
             />
             <Input
               type="text"
@@ -247,6 +260,9 @@ const HospitalWorkerEnrol = () => {
             status={statusState}
             back={onBack}
           />
+        </div>
+        <div className={isSubmitting ? style.display : style.noDisplay}>
+          <Loading />
         </div>
       </div>
     </div>
