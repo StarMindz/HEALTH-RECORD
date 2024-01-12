@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
-// import AuthContext from '../../context/AuthProvider';
+import { useCookies } from 'react-cookie';
 import StatusModal from '../../components/statusModal/StatusModal';
 import style from './SignIn.module.css';
 import Input from '../../components/input/Input';
@@ -11,25 +11,21 @@ import image from '../../assets/typing.png';
 import Loading from '../../components/loading/Loading';
 
 const PatientSignIn = () => {
-  // const { setAuth } = useContext(AuthContext);
   const [status, setStatus] = useState('Something went wrong. Action failed');
   const [statusState, setStatusState] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
+  const [cookies, setCookie] = useCookies(['access_token', 'refresh_token']);
   const [values, setValues] = useState({
     username: '',
     password: '',
   });
 
+  const navigate = useNavigate();
+
   const onChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-  };
-
-  const processToken = () => {
-    const cookiesString = document.cookie;
-    console.log(cookiesString);
-    console.log('Hi');
   };
 
   const signIn = async (event) => {
@@ -62,25 +58,41 @@ const PatientSignIn = () => {
       const endPoint = `https://tech-maverics.onrender.com/auth/login?email=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
 
       const response = await axios.post(endPoint, {});
-      console.log(response);
       const { access_token, refresh_token } = response.data.tokens;
-      console.log(access_token);
-      console.log(refresh_token);
+      console.log('Access', access_token, 'Refresh', refresh_token);
 
       // Store tokens in secure HTTP-only cookies
-      document.cookie = `access_token=${access_token}; Secure; HttpOnly`;
-      document.cookie = `refresh_token=${refresh_token}; Secure; HttpOnly`;
+      const accessExpiry = 2 * 60 * 60; // 2 hours in seconds
+      const refreshExpiry = 30 * 24 * 60 * 60; // 1 month in seconds
 
+      const accessExpiryDate = new Date(Date.now() + accessExpiry * 1000);
+      const refreshExpiryDate = new Date(Date.now() + refreshExpiry * 1000);
+
+      // Set access token cookie
+      setCookie('access_token', access_token, {
+        expires: accessExpiryDate,
+        secure: true,
+        httpOnly: true,
+        sameSite: 'Strict',
+      });
+
+      // Set refresh token cookie
+      setCookie('refresh_token', refresh_token, {
+        expires: refreshExpiryDate,
+        secure: true,
+        httpOnly: true,
+        sameSite: 'Strict',
+      });
+      const access = 'access_token';
+      console.log('Cookies go oon  ', cookies[access]);
       setIsSubmitting(false);
       setStatus('Signed in successfully!');
       setStatusState(true);
       setShowStatus(true);
-      processToken();
-      window.location.href = '/dashboard';
+      navigate('/dashboard');
     } catch (error) {
       setIsSubmitting(false);
       const errorMessage = error?.response?.data?.detail?.[0]?.msg ?? 'Something went wrong';
-      console.log(error);
       setStatus(errorMessage);
       setStatusState(false);
       setShowStatus(true);
