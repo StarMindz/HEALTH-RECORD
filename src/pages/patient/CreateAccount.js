@@ -11,7 +11,7 @@ import Button from '../../components/button/Button';
 import StatusModal from '../../components/statusModal/StatusModal';
 import Loading from '../../components/loading/Loading';
 
-const PatientCreateAccount = () => {
+const PatientCreateAccount = function () {
   const [status, setStatus] = useState('Something went wrong. Action failed');
   const [statusState, setStatusState] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
@@ -148,7 +148,7 @@ const PatientCreateAccount = () => {
       .then((response) => {
       // Handle successful response and Show popup
         console.log(response);
-        setStatus('Account created successfully!');
+        setStatus('Account created successfully! Please check your email to verify and complete your registration.');
         setIsSubmitting(false);
         setStatusState(true);
         setShowStatus(true);

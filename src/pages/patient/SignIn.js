@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { useState } from 'react';
+import axiosInstance from '../../context/axiosInstance';
 // import AuthContext from '../../context/AuthProvider';
 import StatusModal from '../../components/statusModal/StatusModal';
 import style from './SignIn.module.css';
@@ -10,7 +10,7 @@ import Button from '../../components/button/Button';
 import image from '../../assets/typing.png';
 import Loading from '../../components/loading/Loading';
 
-const PatientSignIn = () => {
+const PatientSignIn = function () {
   // const { setAuth } = useContext(AuthContext);
   const [status, setStatus] = useState('Something went wrong. Action failed');
   const [statusState, setStatusState] = useState(false);
@@ -26,18 +26,10 @@ const PatientSignIn = () => {
     setValues({ ...values, [name]: value });
   };
 
-  const processToken = () => {
-    const cookiesString = document.cookie;
-    console.log(cookiesString);
-    console.log('Hi');
-  };
-
   const signIn = async (event) => {
     event.preventDefault(); // prevent page refresh
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const {
-      username, password,
-    } = values;
+    const { username, password } = values;
 
     if (!emailRegex.test(username)) {
       setStatus('Give a valid email address');
@@ -54,29 +46,16 @@ const PatientSignIn = () => {
     setIsSubmitting(true);
 
     try {
-      // const endPoint = 'https://tech-maverics.onrender.com/auth/login';
-      // const response = await axios.post(endPoint, {
-      //   email: username,
-      //   password,
-      // });
       const endPoint = `https://tech-maverics.onrender.com/auth/login?email=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
 
-      const response = await axios.post(endPoint, {});
+      const response = await axiosInstance.post(endPoint, {}, { withCredentials: true });
       console.log(response);
-      const { access_token, refresh_token } = response.data.tokens;
-      console.log(access_token);
-      console.log(refresh_token);
-
-      // Store tokens in secure HTTP-only cookies
-      document.cookie = `access_token=${access_token}; Secure; HttpOnly`;
-      document.cookie = `refresh_token=${refresh_token}; Secure; HttpOnly`;
 
       setIsSubmitting(false);
       setStatus('Signed in successfully!');
       setStatusState(true);
       setShowStatus(true);
-      processToken();
-      window.location.href = '/dashboard';
+      // window.location.href = '/dashboard';
     } catch (error) {
       setIsSubmitting(false);
       const errorMessage = error?.response?.data?.detail?.[0]?.msg ?? 'Something went wrong';

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState } from 'react';
-import axios from 'axios';
+import axiosInstance from 'axios';
 import { Link } from 'react-router-dom';
 import style from './CreateAccount.module.css';
 import Input from '../../../../components/input/Input';
@@ -10,7 +10,7 @@ import Button from '../../../../components/button/Button';
 import StatusModal from '../../../../components/statusModal/StatusModal';
 import Loading from '../../../../components/loading/Loading';
 
-const HospitalAdminCreateAccount = () => {
+const HospitalAdminCreateAccount = function () {
   const [status, setStatus] = useState('Something went wrong. Action failed');
   const [statusState, setStatusState] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
@@ -18,17 +18,19 @@ const HospitalAdminCreateAccount = () => {
   const [values, setValues] = useState({
     name: '',
     email: '',
+    phone: '',
     password1: '',
     password2: '',
-    phone: '',
+    hospitalID: '8888888888',
   });
 
   const [error, setError] = useState({
     name: '',
     email: '',
+    phone: '',
     password1: '',
     password2: '',
-    phone: '',
+    hospitalID: '8888888888',
   });
 
   const onChange = (e) => {
@@ -86,13 +88,12 @@ const HospitalAdminCreateAccount = () => {
     event.preventDefault();
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*.,?]).{8,}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const ninRegex = /^\d{11}$/;
     const endPoint = 'https://tech-maverics.onrender.com/hospital/admin/register';
     const {
-      name, email, password1, password2, gender, dob, phone, address, nin,
+      name, email, password1, password2, phone,
     } = values;
 
-    if (name === '' || email === '' || password1 === '' || password2 === '' || gender === '' || dob === '' || address === '' || phone === '') {
+    if (name === '' || email === '' || password1 === '' || password2 === '' || phone === '') {
       setStatus('All fields are required. Insurance ID is the only optional field');
       setStatusState(false);
       setShowStatus(true);
@@ -110,12 +111,6 @@ const HospitalAdminCreateAccount = () => {
       setShowStatus(true);
       return;
     }
-    if (!ninRegex.test(nin)) {
-      setStatus('Wrong NIN format');
-      setStatusState(false);
-      setShowStatus(true);
-      return;
-    }
     if (password1 !== password2) {
       setStatus('Passwords do not match');
       setStatusState(false);
@@ -123,7 +118,7 @@ const HospitalAdminCreateAccount = () => {
       return;
     }
     setIsSubmitting(true);
-    axios.post(endPoint, values)
+    axiosInstance.post(endPoint, values)
       .then(() => {
       // Handle successful response and Show popup
         setStatus('Form submitted successfully!');
@@ -143,6 +138,7 @@ const HospitalAdminCreateAccount = () => {
       // Handle error response
         // Handle error response
         setIsSubmitting(false);
+        console.log(error);
         const errorMessage = error.response.data.detail[0].msg;
         setStatus(errorMessage);
         setStatusState(false);
@@ -216,7 +212,7 @@ const HospitalAdminCreateAccount = () => {
             />
           </form>
           <div className={style.button_div}>
-            <Link to="../../signin/hospital">
+            <Link to="../../signin">
               <Button
                 text="Sign in instead"
                 btnType={1}
