@@ -1,13 +1,13 @@
-import style from './Loading.module.css';
+import style from './Loading.module.css'
 
 const Loading = () => {
-  const html = (
-    <div className={style.loadingContainer}>
-      <div className={style.spinner} />
-    </div>
-  );
+ const html = (
+  <div className={style.loadingContainer}>
+   <div className={style.spinner} />
+  </div>
+ )
 
-  return html;
-};
+ return html
+}
 
-export default Loading;
+export default Loading

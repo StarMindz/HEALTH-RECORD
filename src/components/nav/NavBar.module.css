@@ -1,147 +1,147 @@
 .nav_bar {
-  background: linear-gradient(6.86deg, #375023 12.25%, rgba(91, 132, 58, 0.85) 101.41%);
-  display: flex;
-  height: 70px;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+ background: linear-gradient(6.86deg, #375023 12.25%, rgba(91, 132, 58, 0.85) 101.41%);
+ display: flex;
+ height: 70px;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
 }
 
 .nav_bar_menu {
-  position: fixed;
-  background: linear-gradient(6.86deg, #375023 12.25%, rgba(91, 132, 58, 0.85) 101.41%);
-  left: -100%;
-  top: 0;
-  width: 100%;
-  gap: 20px;
-  padding-top: 50px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: 0.3s;
-  z-index: 20;
+ position: fixed;
+ background: linear-gradient(6.86deg, #375023 12.25%, rgba(91, 132, 58, 0.85) 101.41%);
+ left: -100%;
+ top: 0;
+ width: 100%;
+ gap: 20px;
+ padding-top: 50px;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ transition: 0.3s;
+ z-index: 20;
 }
 
 .nav_buttons {
-  display: flex;
-  gap: 20px;
+ display: flex;
+ gap: 20px;
 }
 
 .company_name {
-  height: 30px;
-  width: 120px;
-  margin-left: 20px;
+ height: 30px;
+ width: 120px;
+ margin-left: 20px;
 }
 
 .horizontal {
-  width: 40px;
-  height: 4px;
-  background-color: white;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+ width: 40px;
+ height: 4px;
+ background-color: white;
+ -webkit-transition: all 0.3s ease-in-out;
+ transition: all 0.3s ease-in-out;
 }
 
 .nav_bar_menu.active {
-  left: 0;
-  padding-left: 50px;
+ left: 0;
+ padding-left: 50px;
 }
 
 .hamburger.active {
-  position: fixed;
-  left: 80%;
+ position: fixed;
+ left: 80%;
 }
 
 .hamburger {
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  width: 50px;
-  height: 25px;
-  background-color: gray;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  margin-right: 20px;
-  z-index: 21;
-  transition: 1s;
+ border-radius: 5px;
+ display: flex;
+ flex-direction: column;
+ width: 50px;
+ height: 25px;
+ background-color: gray;
+ align-items: center;
+ justify-content: space-between;
+ padding-top: 6px;
+ padding-bottom: 6px;
+ margin-right: 20px;
+ z-index: 21;
+ transition: 1s;
 }
 
 .hamburger.active .horizontal:nth-child(2) {
-  opacity: 0;
+ opacity: 0;
 }
 
 .hamburger.active .horizontal:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
+ transform: translateY(10px) rotate(45deg);
 }
 
 .hamburger.active .horizontal:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+ transform: translateY(-10px) rotate(-45deg);
 }
 
 .nav_bar_head {
-  background-color: transparent;
-  color: black;
+ background-color: transparent;
+ color: black;
 }
 
 .menu_item {
-  font-family: Roboto;
-  font-size: 20px;
-  text-decoration: none;
-  color: #fff;
+ font-family: Roboto;
+ font-size: 20px;
+ text-decoration: none;
+ color: #fff;
 }
 
 .active {
-  color: #f0851a;
+ color: #f0851a;
 }
 
 .menu_item:hover {
-  color: #f0851a;
-}
-  
-@media (min-width: 1000px) {
-  .hamburger {
-    display: none;
-  }
-
-  .nav_bar_menu {
-    position: static;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    height: auto;
-    width: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    margin-right: 40px;
-    background: transparent;
-  }
-
-  .hamburger {
-    display: none;
-  }
-
-  .home,
-  .search {
-    color: #e2e8f6;
-  }
-
-  .nav_buttons {
-    margin-left: 10vw;
-  }
-
-  .menu_item {
-    color: white;
-  }
+ color: #f0851a;
 }
 
 @media (min-width: 1000px) {
-  .nav_buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
+ .hamburger {
+  display: none;
+ }
+
+ .nav_bar_menu {
+  position: static;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-right: 40px;
+  background: transparent;
+ }
+
+ .hamburger {
+  display: none;
+ }
+
+ .home,
+ .search {
+  color: #e2e8f6;
+ }
+
+ .nav_buttons {
+  margin-left: 10vw;
+ }
+
+ .menu_item {
+  color: white;
+ }
+}
+
+@media (min-width: 1000px) {
+ .nav_buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+ }
 }

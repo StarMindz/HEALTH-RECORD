@@ -26,16 +26,16 @@
 > Harchive Health Record is a web application that enables you to store, view and manage your health data in one place. The application is built using React.js, Redux, Webpack and other modern web development technologies
 
 ## 🛠 Built With <a name="built-with"></a>
-- Redux and React JS 
-    { 
-      components, events, states, hooks, 
-      props, router, reducers and actions, API
-    }
+
+- Redux and React JS
+  {
+  components, events, states, hooks,
+  props, router, reducers and actions, API
+  }
 - JSX
 - JavaScript
 - Webpack
 - GitFlow
-
 
 > Describe the tech stack and include only the relevant sections that apply to your project.
 
@@ -61,19 +61,17 @@
  - View health data in an organized and easy-to-use interface
  
   
- <p align="right">(<a href="#readme-top">back to top</a>)</p> 
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Features -->
-
-
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
->Link to live Demo 
+> Link to live Demo
 
-- [Click here to explore](https://tech-marverick.netlify.app/) 
+- [Click here to explore](https://tech-marverick.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -83,11 +81,11 @@
 
 To get a local copy up and running, follow these steps.
 
->clone the repo like this: 
-​
-  git clone https://github.com/StarMindz/HEALTH-RECORD
+> clone the repo like this:
+> ​
+> git clone https://github.com/StarMindz/HEALTH-RECORD
 
->Install the dependencies using `npm install` and then run the project from the root of the folder using this command `npm run start`
+> Install the dependencies using `npm install` and then run the project from the root of the folder using this command `npm run start`
 
 ### Prerequisites
 
@@ -110,7 +108,6 @@ To run the project, execute the command "npm install" and "npm start" on termina
 
 To run tests, run the command "npm test"
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -131,6 +128,7 @@ To run tests, run the command "npm test"
 ## 🔭 Future Features <a name="future-features"></a>
 
 Some Future Features :
+
 - Building a mobile app or responsive design for mobile devices
 - Integration with additional APIs
 
@@ -150,7 +148,6 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-
 If you like this project, please give it a star and also follow me on GitHub for future projects
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -158,6 +155,7 @@ If you like this project, please give it a star and also follow me on GitHub for
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
 - I would like to thank my other teammates who worked on the backend as well as the UI/UX of this platform.
 - Thumb ups to all the Naija Afrobeat Musicians whose beautiful music made building this project more fun
 
@@ -169,6 +167,4 @@ If you like this project, please give it a star and also follow me on GitHub for
 
 This project is [MIT](./LICENSE) licensed.
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-

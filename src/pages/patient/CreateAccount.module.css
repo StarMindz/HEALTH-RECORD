@@ -1,115 +1,115 @@
 .main_cont {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  width: 100%;
+ display: flex;
+ flex-direction: row;
+ height: 100vh;
+ width: 100%;
 }
 
 .left_cont {
-  min-width: 40vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: url('./../../assets/patient_hands.jpg');
-  background-size: cover;
+ min-width: 40vw;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background-image: url('./../../assets/patient_hands.jpg');
+ background-size: cover;
 }
 
-.background  {
-  background: linear-gradient(0deg, rgba(53, 28, 2, 0.8), rgba(53, 28, 2, 0.8));
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.background {
+ background: linear-gradient(0deg, rgba(53, 28, 2, 0.8), rgba(53, 28, 2, 0.8));
+ width: 100%;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .right_cont {
-  display: flex;
-  min-width: 60vw;
-  background-color: white;
-  flex-direction: column;
-  overflow-y: scroll;
+ display: flex;
+ min-width: 60vw;
+ background-color: white;
+ flex-direction: column;
+ overflow-y: scroll;
 }
 
 .form_cont {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin-top: 50px;
 }
 
 .intro {
-  color: #fff;
-  font-size: 32px;
-  font-family: Roboto;
-  font-weight: 400;
-  width: 426px;
-  text-align: center;
+ color: #fff;
+ font-size: 32px;
+ font-family: Roboto;
+ font-weight: 400;
+ width: 426px;
+ text-align: center;
 }
 
 .heading {
-  font-size: 48px;
-  color: #f0851a;
+ font-size: 48px;
+ color: #f0851a;
 }
 
 .button_div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 5px;
-  margin-bottom: 50px;
-  width: 426px;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ margin: 5px;
+ margin-bottom: 50px;
+ width: 426px;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
+ display: flex;
+ flex-direction: column;
 }
 
 .display {
-  display: block;
+ display: block;
 }
 
 .noDisplay {
-  display: none;
+ display: none;
 }
 
 @media (max-width: 1023px) {
-  .main_cont {
-    flex-direction: column;
-    align-items: center;
-  }
+ .main_cont {
+  flex-direction: column;
+  align-items: center;
+ }
 
-  .left_cont {
-    display: none;
-  }
- 
-  .right_cont {
-    padding-bottom: 60px;
-    width: 100vw;
-    align-items: center;
-  }
+ .left_cont {
+  display: none;
+ }
 
-  .heading {
-    text-align: center;
-    font-size: 36px;
-  }
+ .right_cont {
+  padding-bottom: 60px;
+  width: 100vw;
+  align-items: center;
+ }
 
-  .form_cont {
-    width: 80%
-  }
+ .heading {
+  text-align: center;
+  font-size: 36px;
+ }
 
-  .form {
-    /* align-items: center; */
-    width: 100%;
-  }
+ .form_cont {
+  width: 80%;
+ }
 
-  .button_div {
-    flex-direction:column-reverse;
-    justify-content: space-between;
-    height: 100px;
-    width: 80%
-  }
+ .form {
+  /* align-items: center; */
+  width: 100%;
+ }
+
+ .button_div {
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  height: 100px;
+  width: 80%;
+ }
 }

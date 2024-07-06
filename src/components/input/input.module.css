@@ -1,85 +1,85 @@
 .input {
-  height: 24px;
-  border-color: #79747E;
-  border-radius: 4px;
-  width: 456px;
-  font-family: Roboto;
-  font-size: 14px;
-  padding: 16px;
-  outline: none;
-  position: relative;
+ height: 24px;
+ border-color: #79747e;
+ border-radius: 4px;
+ width: 456px;
+ font-family: Roboto;
+ font-size: 14px;
+ padding: 16px;
+ outline: none;
+ position: relative;
 }
 
 .big_input {
-  height: 100px;
-  border-color: #79747E;
-  border-radius: 4px;
-  width: 456px;
-  font-family: Roboto;
-  font-size: 14px;
-  padding: 16px;
-  outline: none;
+ height: 100px;
+ border-color: #79747e;
+ border-radius: 4px;
+ width: 456px;
+ font-family: Roboto;
+ font-size: 14px;
+ padding: 16px;
+ outline: none;
 }
 
 .input2 {
-  width: 490px;
-  height: 56px;
-  outline: none;
-  -webkit-appearance: listbox;
-  appearance: listbox;
-  padding-right: 32px;
-  cursor: pointer;
+ width: 490px;
+ height: 56px;
+ outline: none;
+ -webkit-appearance: listbox;
+ appearance: listbox;
+ padding-right: 32px;
+ cursor: pointer;
 }
 
 .main_cont {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  margin-top: 25px;
-  margin-bottom: 25px;
+ position: relative;
+ width: 100%;
+ margin: 0;
+ padding: 0;
+ margin-top: 25px;
+ margin-bottom: 25px;
 }
 
 .input_label {
-  position: absolute;
-  top: -8px;
-  left: 10px;
-  background-color: white;
-  padding-left: 5px;
-  padding-right: 5px;
-  font-family: Roboto;
-  font-size: 12px;
-  height: 16px;
-  z-index: 2;
+ position: absolute;
+ top: -8px;
+ left: 10px;
+ background-color: white;
+ padding-left: 5px;
+ padding-right: 5px;
+ font-family: Roboto;
+ font-size: 12px;
+ height: 16px;
+ z-index: 2;
 }
 
 .error {
-  width: 456px;
-  color: red;
-  margin-top: 10px;
-  font-family: Roboto;
-  font-size: 14px;
+ width: 456px;
+ color: red;
+ margin-top: 10px;
+ font-family: Roboto;
+ font-size: 14px;
 }
 
 .show {
-  display: block;
+ display: block;
 }
 
 .noDisplay {
-  display: none;
+ display: none;
 }
 
 .eye {
-  position: absolute;
-  top: 20px;
-  right: 10px;
+ position: absolute;
+ top: 20px;
+ right: 10px;
 }
 
 @media (max-width: 720px) {
-  .input,
-  .big_input,
-  .error,
-  .input2 {
-    width: 90%;
-  }
+ .input,
+ .big_input,
+ .error,
+ .input2 {
+  width: 90%;
+ }
 }
