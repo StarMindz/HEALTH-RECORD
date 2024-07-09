@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import axiosInstance from '../../context/axiosInstance'
-// import AuthContext from '../../context/AuthProvider';
 import StatusModal from '../../components/statusModal/StatusModal'
 import style from './SignIn.module.css'
 import Input from '../../components/input/Input'
@@ -10,7 +9,6 @@ import image from '../../assets/typing.png'
 import Loading from '../../components/loading/Loading'
 
 const PatientSignIn = function () {
- // const { setAuth } = useContext(AuthContext);
  const [status, setStatus] = useState('Something went wrong. Action failed')
  const [statusState, setStatusState] = useState(false)
  const [isSubmitting, setIsSubmitting] = useState(false)
@@ -22,11 +20,11 @@ const PatientSignIn = function () {
 
  const onChange = (e) => {
   const { name, value } = e.target
-  setValues({ ...values, [name]: value })
+  setValues((prevValues) => ({ ...prevValues, [name]: value }))
  }
 
  const signIn = async (event) => {
-  event.preventDefault() // prevent page refresh
+  event.preventDefault()
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   const { username, password } = values
 
@@ -36,7 +34,7 @@ const PatientSignIn = function () {
    setShowStatus(true)
    return
   }
-  if (password === '') {
+  if (!password) {
    setStatus('No password given')
    setStatusState(false)
    setShowStatus(true)
@@ -45,9 +43,8 @@ const PatientSignIn = function () {
   setIsSubmitting(true)
 
   try {
-   const endPoint = `https://tech-maverics.onrender.com/auth/login?email=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-
-   const response = await axiosInstance.post(endPoint, {}, { withCredentials: true })
+   const endPoint = `https://tech-maverics.onrender.com/auth/login`
+   const response = await axiosInstance.post(endPoint, { email: username, password }, { withCredentials: true })
    console.log(response)
 
    setIsSubmitting(false)
@@ -71,7 +68,7 @@ const PatientSignIn = function () {
   setStatusState(false)
  }
 
- const html = (
+ return (
   <div className={style.main_cont}>
    <div className={style.left_cont}>
     <div className={style.left_cont_content}>
@@ -82,7 +79,7 @@ const PatientSignIn = function () {
    <div className={style.right_cont}>
     <div className={style.form_cont}>
      <h1 className={style.heading}>Sign in</h1>
-     <form className={style.form}>
+     <form className={style.form} onSubmit={signIn}>
       <Input
        type="email"
        label="Email address"
@@ -100,24 +97,19 @@ const PatientSignIn = function () {
        name="password"
        required
       />
+      <div className={style.button_div}>
+       <Link to="../../signup/patient">
+        <Button text="Create account" btnType={1} />
+       </Link>
+       <Button text="Sign in" btnType={2} type="submit" />
+      </div>
      </form>
-     <div className={style.button_div}>
-      <Link to="../../signup/patient">
-       <Button text="Create account" btnType={1} />
-      </Link>
-      <Button text="Sign in" btnType={2} onClick={signIn} />
-     </div>
     </div>
-    <div className={showStatus ? style.display : style.noDisplay}>
-     <StatusModal text={status} status={statusState} back={onBack} />
-    </div>
-    <div className={isSubmitting ? style.display : style.noDisplay}>
-     <Loading />
-    </div>
+    {showStatus && <StatusModal text={status} status={statusState} back={onBack} />}
+    {isSubmitting && <Loading />}
    </div>
   </div>
  )
- return html
 }
 
 export default PatientSignIn
