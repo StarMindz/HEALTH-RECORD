@@ -54,7 +54,7 @@ const PatientSignIn = function () {
    setStatus('Signed in successfully!')
    setStatusState(true)
    setShowStatus(true)
-   // window.location.href = '/dashboard';
+   window.location.href = '/dashboard';
   } catch (error) {
    setIsSubmitting(false)
    const errorMessage = error?.response?.data?.detail?.[0]?.msg ?? 'Something went wrong'
