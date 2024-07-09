@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState, useContext } from 'react'
 import axiosInstance from '../../context/axiosInstance'
-// import AuthContext from '../../context/AuthProvider';
+import AuthContext from '../../context/AuthProvider';
 import StatusModal from '../../components/statusModal/StatusModal'
 import style from './SignIn.module.css'
 import Input from '../../components/input/Input'
@@ -10,7 +10,7 @@ import image from '../../assets/typing.png'
 import Loading from '../../components/loading/Loading'
 
 const PatientSignIn = function () {
- // const { setAuth } = useContext(AuthContext);
+ const { checkAuth } = useContext(AuthContext);
  const [status, setStatus] = useState('Something went wrong. Action failed')
  const [statusState, setStatusState] = useState(false)
  const [isSubmitting, setIsSubmitting] = useState(false)
@@ -19,6 +19,8 @@ const PatientSignIn = function () {
   username: '',
   password: ''
  })
+
+ const navigate = useNavigate();
 
  const onChange = (e) => {
   const { name, value } = e.target
@@ -54,7 +56,20 @@ const PatientSignIn = function () {
    setStatus('Signed in successfully!')
    setStatusState(true)
    setShowStatus(true)
-   window.location.href = '/dashboard';
+
+   let authResponse = await checkAuth(); // Check authentication status and update context
+
+   console.log(authResponse);
+
+   const userRole = authResponse.data.data.role; // Assuming the role is included in the response
+
+//    if (userRole === 'hospital') {
+//      navigate('/hospital-dashboard');
+//    } else if (userRole === 'patient') {
+//      navigate('/dashboard');
+//    } else {
+//      navigate('/dashboard');
+//    }
   } catch (error) {
    setIsSubmitting(false)
    const errorMessage = error?.response?.data?.detail?.[0]?.msg ?? 'Something went wrong'
