@@ -223,6 +223,7 @@
  border-radius: 4px;
  background-color: #f0851a;
  padding-left: 19px;
+ margin-left: -19px;
  transition: 0.5s;
 }
 
@@ -268,6 +269,7 @@
 
  .active {
   padding: 0;
+  margin-left: 0;
  }
 
  .side_bar_item {
