@@ -100,6 +100,7 @@ const PatientSignIn = function () {
        name="password"
        required
       />
+      <span style={{ color: '#c86f16', cursor: 'pointer', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>Forget password ?</span>
      </form>
      <div className={style.button_div}>
       <Link to="../../signup/patient">
