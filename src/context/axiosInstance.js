@@ -1,8 +1,13 @@
 import axios from 'axios'
+import BASE_URL from './baseUrl'
 
 // Create an Axios instance
 const axiosInstance = axios.create({
- baseURL: 'https://tech-maverics.onrender.com', // Your API base URL
+ baseURL: BASE_URL, // Your API base URL
+ headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
  withCredentials: true // Ensure cookies are included in requests
 })
 

@@ -9,6 +9,7 @@ import PatientSignIn from './pages/patient/SignIn'
 import PatientCreateAccount from './pages/patient/CreateAccount'
 import CheckIn from './pages/patient/CheckIn'
 import Dashboard from './pages/hospital/Dashboard'
+import ForgetPassword from './pages/patient/ForgetPassword'
 // import AllergyInput from './pages/hospital/inputScreens/AllergyInput';
 // import ImmunizationInput from './pages/hospital/inputScreens/ImmunizationInput';
 // import MedicationInput from './pages/hospital/inputScreens/MedicationInput';
@@ -36,6 +37,7 @@ function App() {
     <Route path="/signup/insurance" element={<InsuranceCreateAccount />} />
     <Route path="/status/good" element={<StatusModal text="good" status />} />
     <Route path="/checkin" element={<CheckIn />} />
+    <Route path="/forget-password" element={<ForgetPassword />} />
    </Routes>
   </Router>
  )

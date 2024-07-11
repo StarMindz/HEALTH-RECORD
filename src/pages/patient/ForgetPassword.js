@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useContext } from 'react'
-import axiosInstance from '../../context/axiosInstance'
 import BASE_URL from '../../context/baseUrl';
+import axiosInstance from '../../context/axiosInstance'
 import AuthContext from '../../context/AuthProvider';
 import StatusModal from '../../components/statusModal/StatusModal'
 import style from './SignIn.module.css'
@@ -10,37 +10,63 @@ import Button from '../../components/button/Button'
 import image from '../../assets/typing.png'
 import Loading from '../../components/loading/Loading'
 
-const PatientSignIn = function () {
+const ForgetPassword = function () {
  const { checkAuth } = useContext(AuthContext);
  const [status, setStatus] = useState('Something went wrong. Action failed')
  const [statusState, setStatusState] = useState(false)
  const [isSubmitting, setIsSubmitting] = useState(false)
  const [showStatus, setShowStatus] = useState(false)
  const [values, setValues] = useState({
-  username: '',
-  password: ''
+  email: '',
  })
+
+ const [error, setError] = useState({
+    email: '',
+   })
 
  const navigate = useNavigate();
 
  const onChange = (e) => {
-  const { name, value } = e.target
-  setValues({ ...values, [name]: value })
+    const { name, value } = e.target
+    if (value === '') {
+        setError({ ...error, [name]: '' })
+        setValues({ ...values, [name]: value })
+        return
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    let emailError = ''
+
+    switch (name) {
+        case 'email':
+         if (!emailRegex.test(value)) {
+          emailError = 'Input a valid Email Address'
+         } else {
+          emailError = ''
+         }
+         break
+
+        default:
+        break
+    }
+
+    setError({
+        ...error,
+        email: emailError,
+    })
+
+    setValues({ ...values, [name]: value })
  }
 
- const signIn = async (event) => {
+ const handleSubmit = async (event) => {
   event.preventDefault() // prevent page refresh
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  const { username, password } = values
+  const { email } = values
+  console.log('Email', email)
 
-  if (!emailRegex.test(username)) {
+  if (!emailRegex.test(email)) {
    setStatus('Give a valid email address')
-   setStatusState(false)
-   setShowStatus(true)
-   return
-  }
-  if (password === '') {
-   setStatus('No password given')
    setStatusState(false)
    setShowStatus(true)
    return
@@ -48,29 +74,16 @@ const PatientSignIn = function () {
   setIsSubmitting(true)
 
   try {
-   const endPoint = `${BASE_URL}/auth/login?email=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+   const endPoint = `${BASE_URL}/auth/forgot_password?`
 
-   const response = await axiosInstance.post(endPoint, {}, { withCredentials: true })
+   const response = await axiosInstance.post(endPoint, {email}, { withCredentials: true })
    console.log(response)
 
    setIsSubmitting(false)
-   setStatus('Signed in successfully!')
+   setStatus('Recovery Email sent successfully!')
    setStatusState(true)
    setShowStatus(true)
 
-   let authResponse = await checkAuth(); // Check authentication status and update context
-
-   console.log(authResponse);
-
-   const userRole = authResponse.data.data.role; // Assuming the role is included in the response
-
-//    if (userRole === 'hospital') {
-//      navigate('/hospital-dashboard');
-//    } else if (userRole === 'patient') {
-//      navigate('/dashboard');
-//    } else {
-//      navigate('/dashboard');
-//    }
   } catch (error) {
    setIsSubmitting(false)
    const errorMessage = error?.response?.data?.detail?.[0]?.msg ?? 'Something went wrong'
@@ -97,32 +110,23 @@ const PatientSignIn = function () {
    </div>
    <div className={style.right_cont}>
     <div className={style.form_cont}>
-     <h1 className={style.heading}>Sign in</h1>
+     <h1 className={style.heading}>Reset Your Password</h1>
      <form className={style.form}>
-      <Input
-       type="email"
-       label="Email address"
-       placeholder="Email address"
-       onChange={onChange}
-       value={values.username}
-       name="username"
-      />
-      <Input
-       type="password"
-       label="Password"
-       placeholder="Password"
-       onChange={onChange}
-       value={values.password}
-       name="password"
-       required
-      />
-      <span onClick={() =>navigate('/forget-password')} style={{ color: '#c86f16', width: '100%', cursor: 'pointer', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>Forget password ?</span>
+        <Input
+        type="email"
+        label="Email address"
+        placeholder="Email address"
+        onChange={onChange}
+        value={values.email}
+        name="email"
+        />
      </form>
      <div className={style.button_div}>
-      <Link to="../../signup/patient">
-       <Button text="Create account" btnType={1} />
-      </Link>
-      <Button text="Sign in" btnType={2} onClick={signIn} />
+        <Link to="../../signin">
+            <Button text="Back to Sign In" btnType={1} />
+        </Link>
+
+        <Button text="Reset Password" btnType={2} onClick={ handleSubmit} />
      </div>
     </div>
     <div className={showStatus ? style.display : style.noDisplay}>
@@ -137,4 +141,4 @@ const PatientSignIn = function () {
  return html
 }
 
-export default PatientSignIn
+export default ForgetPassword;

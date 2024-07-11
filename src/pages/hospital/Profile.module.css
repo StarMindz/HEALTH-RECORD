@@ -29,6 +29,10 @@
  align-items: center;
 }
 
+.noDisplay {
+    display: none;
+}
+
 @media (max-width: 730px) {
  .profile {
   width: 90%;
