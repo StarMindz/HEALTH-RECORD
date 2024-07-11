@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
     try {
       // const endPoint = `${BASE_URL}/auth/isAuthenticated`
 
-      const response = await axiosInstance.get('https://tech-maverics.onrender.com/auth/isAuthenticated');
+      const response = await axiosInstance.get('/auth/isAuthenticated');
       console.log("I got to Auth provider")
       if (response.data.status === "success" && response.data.msg === "true") {
         setAuth({

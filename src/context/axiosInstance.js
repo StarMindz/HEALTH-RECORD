@@ -4,16 +4,17 @@ import BASE_URL from './baseUrl';
 // Create an Axios instance
 const axiosInstance = axios.create({
   baseURL: BASE_URL, // Your API base URL
+  withCredentials: false, // Ensure cookies are included in requests
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
   },
-  withCredentials: true, // Ensure cookies are included in requests
 });
 
 // Add a request interceptor
 axiosInstance.interceptors.request.use(
   (config) => {
+    // Modify config if needed
     return config;
   },
   (error) => Promise.reject(error)
