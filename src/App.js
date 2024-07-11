@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedRoute'
 import HospitalAdminSignIn from './pages/hospital/Accounts/HospitalAdmin/SignIn'
 import HospitalWorkerSignIn from './pages/hospital/Accounts/HospitalWorker/SignIn'
 import InsuranceCreateAccount from './pages/insurance/Account/CreateAccount'
@@ -27,7 +28,7 @@ function App() {
     <Route path="/" element={<LandingPage />} />
     <Route path="/signup" element={<GetStarted />} />
     <Route path="/signin" element={<PatientSignIn />} />
-    <Route path="/dashboard" element={<Dashboard />} />
+    <Route path="/dashboard" element={<ProtectedRoute element={Dashboard} />}/>
     <Route path="signup/patient" element={<PatientCreateAccount />} />
     <Route path="signin/patient" element={<PatientSignIn />} />
     <Route path="/signup/hospital" element={<HospitalAdminCreateAccount />} />

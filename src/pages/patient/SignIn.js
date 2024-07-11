@@ -11,7 +11,7 @@ import image from '../../assets/typing.png'
 import Loading from '../../components/loading/Loading'
 
 const PatientSignIn = function () {
- const { checkAuth } = useContext(AuthContext);
+ const { auth, setAuth } = useContext(AuthContext);
  const [status, setStatus] = useState('Something went wrong. Action failed')
  const [statusState, setStatusState] = useState(false)
  const [isSubmitting, setIsSubmitting] = useState(false)
@@ -57,20 +57,30 @@ const PatientSignIn = function () {
    setStatus('Signed in successfully!')
    setStatusState(true)
    setShowStatus(true)
+   const role = response.data.data.role
+   const email = response.data.email
+   const nin = response.data.data.nin 
+   console.log(role)
 
-   let authResponse = await checkAuth(); // Check authentication status and update context
+   setAuth({
+    user: { email: email !== '' ? email : null, nin: nin !== '' ? nin: null },
+    isAuthenticated: true,
+    role: role,
+  });
 
-   console.log(authResponse);
+  console.log(auth)
 
-   const userRole = authResponse.data.data.role; // Assuming the role is included in the response
+  // // Assuming the role is included in the response
+   if (role === 'hospital') {
+     navigate('/hospital-dashboard');
+   } else if (role === 'patient') {
+     navigate('/dashboard');
+    } else if (role === 'insurance') {
+      navigate('/insurance-dashboard');
+   } else {
+     navigate('/dashboard');
+   }
 
-//    if (userRole === 'hospital') {
-//      navigate('/hospital-dashboard');
-//    } else if (userRole === 'patient') {
-//      navigate('/dashboard');
-//    } else {
-//      navigate('/dashboard');
-//    }
   } catch (error) {
    setIsSubmitting(false)
    const errorMessage = error?.response?.data?.detail?.[0]?.msg ?? 'Something went wrong'

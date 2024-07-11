@@ -1,9 +1,13 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useState } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { fetchPatientData } from '../../redux/patient/PatientSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import AuthContext from '../../context/AuthProvider'
 import style from './Dashboard.module.css'
 import Home from './Home'
 import Profile from './Profile'
+import Loading from '../../components/loading/Loading'
 import Medication from './Medication'
 import Allergy from './Allergy'
 import Immunization from './Immunization'
@@ -28,6 +32,28 @@ const Dashboard = () => {
  const [showDashboard, setShowDashboard] = useState(true)
  const [showInput, setShowInput] = useState(false)
  const [activeInput, setActiveInput] = useState('')
+ const dispatch = useDispatch();
+ const patientData = useSelector((state) => state.patient.data);
+ const patientStatus = useSelector((state) => state.patient.status);
+ const patientError = useSelector((state) => state.patient.error);
+ const { auth } = useContext(AuthContext);
+
+ const nin =  auth.user.nin
+ console.log("Heres the nin",nin)
+
+ useEffect(() => {
+    if (patientStatus === 'idle') {
+      dispatch(fetchPatientData(nin));
+    }
+  }, [patientStatus, dispatch]);
+
+  if (patientStatus === 'loading') {
+    return <Loading />;
+  }
+
+  if (patientStatus === 'failed') {
+    return <div>Error: {patientError}</div>;
+  }
 
  const handleClick = (command) => {
   setActive(command)
