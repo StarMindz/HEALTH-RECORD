@@ -50,7 +50,7 @@ const PatientSignIn = function () {
   try {
    const endPoint = `${BASE_URL}/auth/login?email=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
 
-   const response = await axiosInstance.post(endPoint, {}, { withCredentials: true })
+   const response = await axiosInstance.post(endPoint, {},)
    console.log(response)
 
    setIsSubmitting(false)

@@ -7,10 +7,10 @@ import TransactionMin from './DashBoardComponents/TransactionMin'
 import ImmunizationMin from './DashBoardComponents/ImmunizationMin'
 import style from './Dashboard.module.css'
 
-const Home = ({ handleClick, input }) => {
+const Home = ({ handleClick, input, patientData }) => {
  const html = (
   <div className={style.home}>
-   <ProfileMin handleClick={handleClick} />
+   <ProfileMin handleClick={handleClick} patientData={patientData} />
    <MedicationMin input={input} />
    <AllergyMin input={input} />
    <ImmunizationMin input={input} />
@@ -22,11 +22,14 @@ const Home = ({ handleClick, input }) => {
 }
 
 Home.propTypes = {
+ patientData: PropTypes.string,
  handleClick: PropTypes.func,
  input: PropTypes.func
 }
 
+
 Home.defaultProps = {
+ patientData: '',
  handleClick: '',
  input: ''
 }

@@ -6,7 +6,7 @@ import style from '../Dashboard.module.css'
 import edit from '../../../assets/icons/edit.png'
 import profilePic from '../../../assets/profile_pic.png'
 
-const ProfileMin = ({ handleClick }) => {
+const ProfileMin = ({ handleClick, patientData }) => {
  const editor = () => {
   handleClick('profile')
  }
@@ -22,27 +22,27 @@ const ProfileMin = ({ handleClick }) => {
    <div className={style.profile_min_main}>
     <img className={style.profile_pic} src={profilePic} alt="profile pic" />
     <div className={style.bio}>
-     <h2 className={style.name}>Simon Solomon</h2>
+     <h2 className={style.name}>{patientData?.name}</h2>
      <div className={style.bio_item}>
-      <h3 className={style.bio_label}>Date of Birth</h3>
+      <h3 className={style.bio_label}>{patientData?.DOB}</h3>
       <p>{}</p>
      </div>
      <div className={style.bio_item}>
-      <h3 className={style.bio_label}>Height</h3>
+      <h3 className={style.bio_label}>{patientData?.Height}</h3>
       <p>{}</p>
      </div>
      <div className={style.bio_item}>
-      <h3 className={style.bio_label}>Weight</h3>
+      <h3 className={style.bio_label}>{patientData?.weight}</h3>
       <p>{}</p>
      </div>
      <div className={style.bio_item}>
-      <h3 className={style.bio_label}>BMI</h3>
+      <h3 className={style.bio_label}>{patientData?.BMI}</h3>
       <p>{}</p>
      </div>
     </div>
     <div className={style.genotype_info}>
      <div className={style.bio_item}>
-      <h3 className={style.bio_label}>Blood Group</h3>
+      <h3 className={style.bio_label}>{patientData?.BloodType}</h3>
       <p>{}</p>
      </div>
      <div className={style.bio_item}>
@@ -58,10 +58,12 @@ const ProfileMin = ({ handleClick }) => {
 }
 
 ProfileMin.propTypes = {
- handleClick: PropTypes.func
+ patientData: PropTypes.string,
+ handleClick: PropTypes.func,
 }
 
 ProfileMin.defaultProps = {
+ patientData: '',
  handleClick: ''
 }
 

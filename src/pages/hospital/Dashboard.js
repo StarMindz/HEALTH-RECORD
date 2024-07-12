@@ -38,7 +38,9 @@ const Dashboard = () => {
  const patientError = useSelector((state) => state.patient.error);
  const { auth } = useContext(AuthContext);
 
- const nin =  auth.user.nin
+ const nin =  auth?.user?.nin
+ const name = 'Stanley Nnamani'
+//  patientData.name = name;
  console.log("Heres the nin",nin)
 
  useEffect(() => {
@@ -51,9 +53,9 @@ const Dashboard = () => {
     return <Loading />;
   }
 
-  if (patientStatus === 'failed') {
-    return <div>Error: {patientError}</div>;
-  }
+  // if (patientStatus === 'failed') {
+  //   return <div>Error: {patientError}</div>;
+  // }
 
  const handleClick = (command) => {
   setActive(command)
@@ -80,7 +82,7 @@ const Dashboard = () => {
  }
 
  const screen = {
-  home: <Home handleClick={handleClick} input={handleInput} />,
+  home: <Home handleClick={handleClick} input={handleInput} patientData={patientData}/>,
   profile: <Profile />,
   medication: <Medication input={handleInput} />,
   allergy: <Allergy input={handleInput} />,

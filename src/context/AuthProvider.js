@@ -2,7 +2,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import BASE_URL from './baseUrl';
 import PropTypes from 'prop-types';
-import axiosInstance from './axiosInstance';
 import axios from 'axios';
 
 const AuthContext = createContext({});
@@ -10,15 +9,15 @@ const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     user: null,
-    isAuthenticated: false,
+    isAuthenticated: null,
     role: null,
   });
 
   const checkAuth = async () => {
     try {
-      // const endPoint = `${BASE_URL}/auth/isAuthenticated`
+      const endPoint = `${BASE_URL}/auth/isAuthenticated`
 
-      const response = await axiosInstance.get('/auth/isAuthenticated');
+      const response = await axios.get(endPoint);
       console.log("I got to Auth provider")
       if (response.data.status === "success" && response.data.msg === "true") {
         setAuth({
@@ -32,16 +31,11 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error('Error checking authentication', error);
       setAuth({ user: null, isAuthenticated: false, role: null });
-      // window.location.href = '/signin';
     }
   };
 
-  // useEffect(() => {
-  //   checkAuth();
-  // }, [auth]);
-
   const logout = async () => {
-    await axiosInstance.post('/auth/logout', {}, { withCredentials: true });
+    await axios.post(`${BASE_URL}/auth/logout`, {},);
     setAuth({ user: null, isAuthenticated: false, role: null });
   };
 

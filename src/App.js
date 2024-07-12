@@ -29,6 +29,7 @@ function App() {
     <Route path="/signup" element={<GetStarted />} />
     <Route path="/signin" element={<PatientSignIn />} />
     <Route path="/dashboard" element={<ProtectedRoute element={Dashboard} />}/>
+    <Route path="/dashboard-2" element={<Dashboard/>} />
     <Route path="signup/patient" element={<PatientCreateAccount />} />
     <Route path="signin/patient" element={<PatientSignIn />} />
     <Route path="/signup/hospital" element={<HospitalAdminCreateAccount />} />
