@@ -221,7 +221,8 @@
 
 .active {
  border-radius: 4px;
- background-color: #f0851a;
+ /* background-color: #f0851a; */
+ background-color: #ffffff;
  padding-left: 19px;
  margin-left: -19px;
  transition: 0.5s;

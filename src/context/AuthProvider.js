@@ -3,6 +3,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import BASE_URL from './baseUrl';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import axiosInstance from './axiosInstance';
 
 const AuthContext = createContext({});
 
@@ -17,7 +18,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const endPoint = `${BASE_URL}/auth/isAuthenticated`
 
-      const response = await axios.get(endPoint);
+      const response = await axiosInstance.get("/auth/isAuthenticated");
       console.log("I got to Auth provider")
       if (response.data.status === "success" && response.data.msg === "true") {
         setAuth({

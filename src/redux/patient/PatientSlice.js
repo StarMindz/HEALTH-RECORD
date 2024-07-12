@@ -5,7 +5,7 @@ import axiosInstance from '../../context/axiosInstance';
 import axios from 'axios';
 
 export const fetchPatientData = createAsyncThunk('patient/fetchPatientData', async (nin) => {
-  const response = await axios.get(`${BASE_URL}/patient/record/nin/${nin}`);
+  const response = await axiosInstance.get(`/patient/record/nin/${nin}`);
   return response.data;
 });
 
